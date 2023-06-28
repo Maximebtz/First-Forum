@@ -3,18 +3,26 @@
 $topics = $result["data"]['topics'];
     
 ?>
+<div class="section-2">
+    <div class="wrapper-list-topic">
+    <h2>Destinations</h2>
+    <a href="">
+        <div class="cards">
+        <?php
+            foreach($topics as $topic ){
+                echo "<div class='card'>
+                    <h3>" . $topic->getTitle() . "</h3>
+                    <p>" . $topic->getCreationdate() . "</p>
+                    </div>";
+            }
+        ?>
+        </div>
+    </a>
+    
+    </div>
+</div>
 
-<h1>liste topics</h1>
 
-
-<?php
-foreach($topics as $topic ){
-
-    ?>
-    <p><?=$topic->getTitle()?></p>
-    <p><?=$topic->getCreationdate()?></p>
-    <?php
-}
 
 
   

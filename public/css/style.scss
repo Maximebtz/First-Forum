@@ -156,6 +156,9 @@ nav {
 
 
 
+
+/******************** Acceuil ********************/ 
+
 /********** Section-1 **********/ 
 
 .title-background {
@@ -164,6 +167,7 @@ nav {
     height: 100vh;
     width: 100%;
 }
+
 
 /********** Section-2 **********/ 
 
@@ -218,9 +222,71 @@ nav {
 }
 
 
+/******************** Forum ********************/ 
+
+
+    .wrapper-list-topic {
+        margin: 250px 5% 0 25%;
+        min-height: 680px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background: rgba(32, 32, 32, 0.80);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(25px);
+        padding: 50px;  
+        h2 {
+            font-size: 35px;
+            font-weight: 600;
+            letter-spacing: 17.5px;
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+        h3 {
+            font-size: 25px;
+            font-weight: 600;
+            max-width: 700px;
+            text-decoration-line: underline;
+        }
+        a {
+            color: ghostwhite;
+            text-decoration: none;
+        }
+        p {
+            opacity: 50%;
+        }
+        .cards {
+            margin-top: 50px;
+        }
+        .card {
+            border-radius: 10px;
+            background: rgba(16, 16, 16, 0.70);
+            padding: 25px;
+            margin-top: 25px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /********** Footer **********/ 
 
 // footer {
-//     height: ;
-// }
+    //     height: ;
+    // }

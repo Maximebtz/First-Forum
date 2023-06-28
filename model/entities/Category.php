@@ -8,23 +8,32 @@ namespace Model\Entities;
 
         private $id;
         private $name;
+        private $description;
 
-        /**
-         * Get the value of name
-         */ 
+        
         public function getName()
         {
                 return $this->name;
         }
 
-        /**
-         * Set the value of name
-         *
-         * @return  self
-         */ 
+        
         public function setName($name)
         {
                 $this->name = $name;
+
+                return $this;
+        }
+
+         
+        public function getDescription()
+        {
+                return $this->description;
+        }
+
+        
+        public function setDescription($description)
+        {
+                $this->description = $description;
 
                 return $this;
         }
