@@ -17,11 +17,10 @@ body::-webkit-scrollbar {
   width: 7px;
 }
 body::-webkit-scrollbar-track {
-  background: rgba(217, 217, 217, 0.1);
-  border-radius: 20px;
+  background-color: rgba(80, 80, 80, 0.5);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: rgba(80, 80, 80, 0.4);
+  background-color: rgba(32, 32, 32, 0.7);
   border-radius: 20px;
 }
 
@@ -158,8 +157,10 @@ nav .darkmode .ellipse-12 {
 
 /********** Section-2 **********/
 .section-2 {
-  height: 100vh;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.09) 5.5755380541%, rgba(16, 16, 16, 0.6) 100%);
+  min-height: 100vh;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.6) 100%);
   overflow: hidden;
   -webkit-backdrop-filter: blur(12.5px);
   backdrop-filter: blur(12.5px);
@@ -210,7 +211,7 @@ nav .darkmode .ellipse-12 {
 
 /******************** Forum ********************/
 .wrapper-list-topic {
-  margin: 250px 5% 0 25%;
+  margin: 250px 7% 100px 25%;
   min-height: 680px;
   display: flex;
   flex-direction: column;
@@ -222,16 +223,19 @@ nav .darkmode .ellipse-12 {
   padding: 50px;
 }
 .wrapper-list-topic h2 {
+  max-width: 417px;
+  font-size: 35px;
+  border-bottom: 2px white solid;
   font-size: 35px;
   font-weight: 600;
   letter-spacing: 17.5px;
-  text-decoration: underline;
-  text-underline-offset: 7px;
+  text-underline-offset: 5px;
 }
 .wrapper-list-topic h3 {
   font-size: 25px;
   font-weight: 600;
   max-width: 700px;
+  margin-bottom: 15px;
   text-decoration-line: underline;
 }
 .wrapper-list-topic a {
@@ -251,4 +255,37 @@ nav .darkmode .ellipse-12 {
   margin-top: 25px;
 }
 
-/********** Footer **********//*# sourceMappingURL=style.css.map */
+/********** Footer **********/
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5% 0 25%;
+  height: 400px;
+  background: rgba(16, 16, 16, 0.9);
+}
+footer h4 {
+  font-size: 25px;
+  font-weight: 500;
+}
+footer p {
+  color: rgba(248, 248, 255, 0.5);
+}
+footer figure {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+footer figure img {
+  height: 40px;
+}
+footer .footer-lists {
+  display: flex;
+}
+footer .footer-lists .footer-list {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 50px;
+}/*# sourceMappingURL=style.css.map */

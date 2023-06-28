@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="<?= PUBLIC_DIR ?>/css/style.css">
     <title>FORUM</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="link">
                     <img src="./public/img/Communication.png" alt="communication icon">
-                    <a id="forum" href="index.php?ctrl=forum&action=listTopics">Forum</a>
+                    <a id="forum" href="index.php?ctrl=forum&action=listCategories">Forum</a>
                 </div>
                 <div class="link">
                     <img src="./public/img/Brainstorm Skill.png" alt="inspiration icon">
@@ -64,7 +64,48 @@
                 <?= $page ?>
         </main>
         <footer>
-
+            <div class="links">
+                <h4>
+                    TBF·Travel
+                </h4>
+                <p>
+                    World traveler community
+                </p>
+                <figure>
+                    <img src="./public/img/Instagram.png" alt="" class="social-media">
+                    <img src="./public/img/Facebook.png" alt="" class="social-media">
+                    <img src="./public/img/Twitter.png" alt="" class="social-media">        
+                </figure>
+            </div>
+            <div class="footer-lists">
+                <div class="footer-list">
+                    <h5>
+                        TBF
+                    </h5>
+                    <a href="" class="a-tbf">Qui sommes-nous ?</a>
+                    <a href="" class="a-tbf">Ecrivez-nous</a>
+                    <a href="" class="a-tbf">Road-Trips</a>
+                    <a href="" class="a-tbf">Trouver un compagnon de voyage</a>
+                </div>
+                <div class="footer-list">
+                    <h5>
+                        Guide
+                    </h5>
+                    <a href="" class="a-guide">F.A.Q.</a>
+                    <a href="" class="a-guide">L'histoire du voyage</a>
+                </div>
+                <div class="footer-list">
+                    <h5>
+                        Services
+                    </h5>
+                    <a href="" class="a-services">Newsletter</a>
+                    <a href="" class="a-services">Playlist</a>
+                    <a href="" class="a-services">Trouver un hôtel</a>
+                    <a href="" class="a-services">Trouver un avion</a>
+                    <a href="" class="a-services">Trouver un train</a>
+                    <a href="" class="a-services">Trouver une voiture</a>
+                </div>
+            </div>
         </footer>
     </body>
     </html>

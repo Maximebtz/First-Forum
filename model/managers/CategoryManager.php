@@ -15,5 +15,17 @@
             parent::connect();
         }
 
+        public function listTopicByCategory($id)
+        {
+            $sql = "SELECT *
+            FROM ".$this->tableName." c
+            WHERE c.id_".$this->tableName." = :id
+            ";
+
+            return $this->getOneOrNullResult(
+                DAO::select($sql, ['id' => $id], false), 
+                $this->className
+            );
+        }
 
     }

@@ -18,9 +18,9 @@
            $categoryManager = new CategoryManager();
 
             return [
-                "view" => VIEW_DIR."forum/listTopics.php",
+                "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
-                    "topics" => $topicManager->findAll(["creationdate", "DESC"])
+                    "categories" => $categoryManager->findAll([])
                 ]
             ];
         

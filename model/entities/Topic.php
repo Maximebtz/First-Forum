@@ -14,8 +14,7 @@
 
         public function __construct($data){         
             $this->hydrate($data);   
-            $this->creationDate= new \DateTime;     
-            $this->closed= false;     
+     
         }
  
 

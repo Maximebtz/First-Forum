@@ -10,6 +10,10 @@ namespace Model\Entities;
         private $name;
         private $description;
 
+        public function __construct($data){         
+            $this->hydrate($data);       
+        }
+
         
         public function getName()
         {

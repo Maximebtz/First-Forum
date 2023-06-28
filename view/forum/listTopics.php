@@ -6,7 +6,7 @@ $topics = $result["data"]['topics'];
 <div class="section-2">
     <div class="wrapper-list-topic">
     <h2>Destinations</h2>
-    <a href="">
+    <a href="index.php?ctrl=forum&action=listTopics">
         <div class="cards">
         <?php
             foreach($topics as $topic ){
