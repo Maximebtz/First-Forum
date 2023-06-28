@@ -313,6 +313,7 @@ nav {
                 img {
                     height: 40px;
                 }
+                
             }
 
             .footer-lists {
@@ -322,6 +323,13 @@ nav {
                     flex-direction: column;
                     width: 200px;
                     margin-left: 50px;
+                    h5 {
+                        font-size: larger;
+                        font-weight: 500;
+                    }
+                    a {
+                        color: rgba(248, 248, 255, 0.500);
+                    }
                 }
             }
         }

@@ -288,4 +288,11 @@ footer .footer-lists .footer-list {
   flex-direction: column;
   width: 200px;
   margin-left: 50px;
+}
+footer .footer-lists .footer-list h5 {
+  font-size: larger;
+  font-weight: 500;
+}
+footer .footer-lists .footer-list a {
+  color: rgba(248, 248, 255, 0.5);
 }/*# sourceMappingURL=style.css.map */
