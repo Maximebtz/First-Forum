@@ -7,12 +7,7 @@
             DAO::connect();
         }
 
-        /**
-         * get all the records of a table, sorted by optionnal field and order
-         * 
-         * @param array $order an array with field and order option
-         * @return Collection a collection of objects hydrated by DAO, which are results of the request sent
-         */
+        
         public function findAll($order = null){
 
             $orderQuery = ($order) ?                 
