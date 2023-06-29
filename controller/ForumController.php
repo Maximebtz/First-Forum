@@ -14,18 +14,24 @@
         public function index(){
           
 
-           $topicManager = new TopicManager();
-           $categoryManager = new CategoryManager();
-
+            $categoryManager = new CategoryManager();
+            
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
                     "categories" => $categoryManager->findAll([])
-                ]
-            ];
-        
-        }
+                    ]
+                ];
+                
+                
+            $topicManager = new TopicManager();
 
-        
+            return [
+                "view" => VIEW_DIR."forum/listTopics.php",
+                "data" => [
+                    "topics" => $topicManager->findAll(["creationDate", "DESC"])
+                    ]
+                ];
+            }
 
     }

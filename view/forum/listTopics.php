@@ -5,22 +5,22 @@ $topics = $result["data"]['topics'];
 ?>
 <div class="section-2">
     <div class="wrapper-list-topic">
-    <h2>Destinations</h2>
-    <a href="index.php?ctrl=forum&action=listTopics">
-        <div class="cards">
-        <?php
-            foreach($topics as $topic ){
-                echo "<div class='card'>
-                    <h3>" . $topic->getTitle() . "</h3>
-                    <p>" . $topic->getCreationdate() . "</p>
-                    </div>";
-            }
-        ?>
-        </div>
-    </a>
-    
+        <a href="">
+            <div class="cards" id="cards">
+                <?php
+                    foreach($topics as $topic ){
+                ?>
+                    <div class='card'>
+                        <h3><?=$topic->getTitle()?></h3>
+                        <p><?=$topic->getCreationdate() ?></p>
+                    </div>
+                <?php
+                    }
+                ?>
+            </div> 
+        </a>
     </div>
-</div>
+</div> 
 
 
 

@@ -15,8 +15,7 @@
             parent::connect();
         }
 
-        public function listTopicByCategory($id)
-        {
+        public function listTopicByCategory($id){
             $sql = "SELECT *
             FROM ".$this->tableName." c
             WHERE c.id_".$this->tableName." = :id
