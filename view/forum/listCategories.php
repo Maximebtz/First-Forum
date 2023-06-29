@@ -12,7 +12,7 @@ $categories = $result["data"]['categories'];
             <?php
                 foreach($categories as $category ){
             ?>
-                    <a href="index.php?ctrl=forum&action=listTopics">
+                    <a href="index.php?ctrl=forum&action=listTopics&id=<?= $category->getId() ?>">
                         <div class='card'>
                             <h3><?= $category->getName() ?> :</h3>
                             <p><?= $category->getDescription() ?></p>
@@ -20,6 +20,7 @@ $categories = $result["data"]['categories'];
                     </a>
             <?php
                 }
+                var_dump($category->getId());
             ?>
             </div>
     </div>

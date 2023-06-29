@@ -22,16 +22,21 @@
                     "categories" => $categoryManager->findAll([])
                     ]
                 ];
-                
-                
+        }
+
+
+            
+        public function listTopics(){
+
+            $id = $_GET['id'];
+
             $topicManager = new TopicManager();
 
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
-                    "topics" => $topicManager->findAll(["creationDate", "DESC"])
-                    ]
-                ];
-            }
-
+                    "topics" => $topicManager->findAllByCategory($id, ["creationDate", "DESC"])
+                ]
+            ];
+        }
     }
