@@ -3,7 +3,7 @@
     
     use App\Manager;
     use App\DAO;
-    use Model\Managers\TopicManager;
+    use Model\Managers\UserManager;
 
     class TopicManager extends Manager{
 
@@ -15,5 +15,17 @@
             parent::connect();
         }
 
+        public function findAllTopicsByCategory($id, $order = null){
+            $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
 
+            $sql = "SELECT *
+                    FROM ".$this->tableName." t
+                    WHERE t.category_id = :id
+                    ".$orderQuery;
+
+            return $this->getMultipleResults(
+                DAO::select($sql, ['id' => $id]),
+                $this->className
+            );
+        }
     }

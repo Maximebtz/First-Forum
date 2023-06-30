@@ -20,7 +20,6 @@ $categories = $result["data"]['categories'];
                     </a>
             <?php
                 }
-                var_dump($category->getId());
             ?>
             </div>
     </div>

@@ -357,22 +357,13 @@ nav {
 
 /******************** Cards ********************/ 
 
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    width: calc(100% - 20px);
-  }
   
   #cards:hover > .card::after {
     opacity: 1;
   }
   
   .card {
-    
     cursor: pointer;
-    
     transition: all 0.4s ease-in-out;
   }
   

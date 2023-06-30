@@ -14,6 +14,20 @@ namespace Model\Entities;
             $this->hydrate($data);       
         }
 
+
+        public function getId()
+        {
+                return $this->id;
+        }
+
+
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+
         
         public function getName()
         {

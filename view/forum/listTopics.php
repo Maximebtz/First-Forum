@@ -10,11 +10,12 @@ $topics = $result["data"]['topics'];
         <div class="cards" id="cards">
             <?php
                 foreach($topics as $topic){
+                    
             ?>
-                <a href="">
+                <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                     <div class='card'>
                         <h3><?= $topic->getTitle() ?></h3>
-                        <p><?= $topic->getCreationdate() ?></p>
+                        <p><?= $topic->getCreationDate() ?></p>
                     </div>
                 </a>
             <?php
@@ -22,7 +23,7 @@ $topics = $result["data"]['topics'];
             ?>
         </div> 
     </div>
-</div> 
+</div>
 
 
 

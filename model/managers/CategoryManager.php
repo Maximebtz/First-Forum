@@ -3,7 +3,7 @@
     
     use App\Manager;
     use App\DAO;
-    use Model\Managers\CategoryManager;
+    // use Model\Managers\CategoryManager;
 
     class CategoryManager extends Manager{
 
@@ -27,4 +27,17 @@
             );
         }
 
+        // public function findAllTopicsByCategory($id, $order = null){
+        //     $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
+
+        //     $sql = "SELECT *
+        //             FROM ".$this->tableName." t
+        //             WHERE t.".$this->tableName."_id = :id
+        //             ".$orderQuery;
+
+        //     return $this->getMultipleResults(
+        //         DAO::select($sql, ['id' => $id]),
+        //         $this->className
+        //     );
+        // }
     }

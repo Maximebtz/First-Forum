@@ -59,15 +59,15 @@
         }
 
         
-        public function getIscriptiondate(){
+        public function getInscriptiondate(){
             $formattedDate = $this->inscriptionDate->format("d/m/Y, H:i:s");
             return $formattedDate;
         }
 
-        // public function setInscriptiondate($date){
-        //     $this->inscriptionDate = new \DateTime($date);
-        //     return $this;
-        // }
+        public function setInscriptiondate($date){
+            $this->inscriptionDate = new \DateTime($date);
+            return $this;
+        }
 
          
         public function getImage()

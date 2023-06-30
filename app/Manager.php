@@ -3,6 +3,7 @@
 
     abstract class Manager{
 
+
         protected function connect(){
             DAO::connect();
         }
@@ -25,12 +26,12 @@
         }
        
 
-        public function findAllByCategory($id, $order = null){
+        public function findAllByID($id, $order = null){
             $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
 
             $sql = "SELECT *
-                    FROM ".$this->tableName." t
-                    WHERE t.category_id = :id
+                    FROM ".$this->tableName." a
+                    WHERE a.".$this->tableName."_id = :id
                     ".$orderQuery;
 
             return $this->getMultipleResults(
