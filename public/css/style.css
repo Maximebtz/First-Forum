@@ -109,6 +109,11 @@ nav .links .link:hover a {
 nav .links .link:hover img {
   opacity: 100%;
 }
+nav .contacts h3 {
+  letter-spacing: 5px;
+  font-weight: 500;
+  font-size: large;
+}
 nav .darkmode {
   width: 90px;
   display: flex;
@@ -225,6 +230,7 @@ nav .darkmode .ellipse-12 {
   margin: 150px 7% 100px 25%;
 }
 .wrapper-list h2 {
+  margin-bottom: 35px;
   max-width: 417px;
   font-size: 35px;
   border-bottom: 2px white solid;
@@ -263,10 +269,10 @@ nav .darkmode .ellipse-12 {
   background: rgba(16, 16, 16, 0.7);
   cursor: pointer;
   padding: 25px;
-  margin-top: 25px;
   transition: all 0.4s ease-in-out;
   position: relative;
   border: solid 1px rgb(50, 50, 50);
+  margin-top: 25px;
 }
 .wrapper-list button {
   margin-bottom: 65px;
@@ -296,6 +302,7 @@ nav .darkmode .ellipse-12 {
   height: 40px;
   width: 40px;
   margin-right: 15px;
+  border-radius: 25px;
 }
 .wrapper-posts .span-date {
   width: 100%;
@@ -348,15 +355,32 @@ nav .darkmode .ellipse-12 {
   background: rgba(144, 144, 144, 0.5);
 }
 
-.cat-description h1 {
+.description {
+  margin-bottom: 35px;
+}
+.description h1 {
   font-weight: 600;
   font-size: 35px;
   letter-spacing: 17.5px;
   text-underline-offset: 10px;
-  width: 40%;
+  width: 55%;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-.cat-description article {
+.description article {
   width: 800px;
+  opacity: 60%;
+  padding: 50px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.description .little-title {
+  font-weight: 600;
+  font-size: 1.8vw;
+  letter-spacing: 5px;
+  text-underline-offset: 10px;
+  width: 80%;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /******************** Cards ********************/

@@ -9,6 +9,7 @@
         private $user;
         private $text;
         private $creationDate;
+        private $topic;
 
         
         public function __construct($data){         
@@ -60,6 +61,20 @@
         public function setUser($user)
         {
                 $this->user = $user;
+
+                return $this;
+        }
+
+        
+        public function getTopic()
+        {
+                return $this->topic;
+        }
+
+        
+        public function setTopic($topic)
+        {
+                $this->topic = $topic;
 
                 return $this;
         }

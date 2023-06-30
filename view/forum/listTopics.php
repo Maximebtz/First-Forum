@@ -12,7 +12,7 @@ $category = null;
                 foreach($topics as $topic){
                     if ($category === null) {
                         $category = $topic->getCategory();
-                        echo "<div class='cat-description'>";
+                        echo "<div class='description'>";
                         echo "<h1>" . $category->getName() . "</h1>";
                         echo "<article>" . $category->getDescription() . "</article>";
                         echo "</div>";

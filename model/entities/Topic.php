@@ -11,7 +11,8 @@
         private $creationDate;
         private $closed;
         private $category;
-
+        private $description;
+        
 
         public function __construct($data){         
             $this->hydrate($data);   
@@ -93,6 +94,20 @@
         public function setCategory($category)
         {
                 $this->category = $category;
+
+                return $this;
+        }
+
+        
+        public function getDescription()
+        {
+                return $this->description;
+        }
+
+        
+        public function setDescription($description)
+        {
+                $this->description = $description;
 
                 return $this;
         }
