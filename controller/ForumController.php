@@ -39,6 +39,7 @@
             $id = $_GET['id'];
 
             $topicManager = new TopicManager();
+
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
@@ -51,15 +52,14 @@
 
 
         public function listPosts(){
-
             $id = $_GET['id'];
             $postManager = new PostManager();
+        
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
                 "data" => [
-                    "posts" => $postManager->findAllPostsByTopics($id, ["creationDate", "DESC"])
-                    // "topics" => $topicManager->findAll(["creationDate", "DESC"])
-                    ]
-                ];
+                    "posts" => $postManager->findAllPostsByTopics($id, ["creationDate", "ASC"])
+                ]
+            ];
         }
     }

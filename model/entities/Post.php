@@ -3,9 +3,10 @@
 
     use App\Entity;
 
-    final class User extends Entity{
+    final class Post extends Entity{
 
         private $id;
+        private $user;
         private $text;
         private $creationDate;
 
@@ -41,12 +42,25 @@
         }
 
         public function getCreationDate(){
-            $formattedDate = $this->creationDate->format("d/m/Y, H:i:s");
+            $formattedDate = $this->creationDate->format("d-m-Y, H:i:s");
             return $formattedDate;
         }
 
         public function setCreationDate($date){
             $this->creationDate = new \DateTime($date);
             return $this;
+        }
+
+        
+        public function getUser()
+        {
+                return $this->user;
+        }
+
+        public function setUser($user)
+        {
+                $this->user = $user;
+
+                return $this;
         }
     }

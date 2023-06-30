@@ -4,7 +4,7 @@ $categories = $result["data"]['categories'];
     
 ?>
 <div class="section-2">
-    <div class="wrapper-list-categories">
+    <div class="wrapper-list">
             <button>Créer un nouveau forum</button>
             <div class="cards" id="cards" >
             <h2>Destinations</h2>
@@ -23,7 +23,7 @@ $categories = $result["data"]['categories'];
             ?>
             </div>
     </div>
-   
+</div>
 
 
 

@@ -7,10 +7,10 @@
 
         private $id;
         private $username;
-        private $password;
         private $inscriptionDate;
         private $image;
         private $status;
+        private $description;
 
         public function __construct($data){         
             $this->hydrate($data);  
@@ -41,19 +41,6 @@
         public function setUsername($username)
         {
                 $this->username = $username;
-
-                return $this;
-        }
-
-        
-        public function getPassword()
-        {
-                return $this->password;
-        }
-
-        public function setPassword($password)
-        {
-                $this->password = $password;
 
                 return $this;
         }
@@ -93,6 +80,19 @@
         public function setStatus($status)
         {
                 $this->status = $status;
+
+                return $this;
+        }
+
+         
+        public function getDescription()
+        {
+                return $this->description;
+        }
+
+        public function setDescription($description)
+        {
+                $this->description = $description;
 
                 return $this;
         }

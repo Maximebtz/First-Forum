@@ -9,6 +9,7 @@ namespace Model\Entities;
         private $id;
         private $name;
         private $description;
+        
 
         public function __construct($data){         
             $this->hydrate($data);       

@@ -10,6 +10,7 @@
         private $user;
         private $creationDate;
         private $closed;
+        private $category;
 
 
         public function __construct($data){         
@@ -78,6 +79,20 @@
         public function setClosed($closed)
         {
                 $this->closed = $closed;
+
+                return $this;
+        }
+
+         
+        public function getCategory()
+        {
+                return $this->category;
+        }
+
+        
+        public function setCategory($category)
+        {
+                $this->category = $category;
 
                 return $this;
         }
