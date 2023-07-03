@@ -30,11 +30,11 @@ $topic = null;
                 </div>
                 <p><?= $post->getText() ?></p>
             </div>
-        <?php 
-            $firstUser = false; // Mettre la variable à false après le premier utilisateur} 
-        }
-        ?>
-        <button>Nouveau</button>
+            <?php 
+                $firstUser = false; // Mettre la variable à false après le premier utilisateur} 
+            }
+            ?>
         </div> 
+        <button>Nouveau</button>
     </div>
 </div>

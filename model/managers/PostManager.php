@@ -20,7 +20,7 @@
 
             $sql = "SELECT *, u.username, u.image
                     FROM ".$this->tableName." p
-                    JOIN user u ON p.user_id = u.id_user
+                    INNER JOIN user u ON p.user_id = u.id_user
                     WHERE p.topic_id = :id
                     ".$orderQuery;
 

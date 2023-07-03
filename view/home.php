@@ -1,12 +1,13 @@
-        <div class="section-1">
-            <div class="title-background">
-                
-            </div>
-        </div>
+        <section class="parallax-container">
+            <div class="title-background the"></div>
+            <div class="title-background adventure"></div>
+            <div class="title-background begin"></div>
+            <div class="title-background here"></div>
+        </section>
         
-        <div class="section-2">
+        <section class="section-2">
             <div class="wrapper-article">
-                <div class="article" >
+                <div class="article show" >
                     <figure>
                         <img class="article-img" src="./public/img/pexels-roman-odintsov-4553618.jpg" />
                     </figure>
@@ -23,7 +24,7 @@
                     </div>
                 </div>
                     
-                <div class="article article-2" >
+                <div class="article article-2 show" >
                     <div class="article-content">
                         <h3 class="article-title" >
                             Pourquoi Voyager ?
@@ -39,7 +40,7 @@
                     </figure>
                 </div>
                 
-                <div class="article">
+                <div class="article show">
                     <figure>
                         <img class="article-img" src="./public/img/pexels-cottonbro-studio-10415671.jpg" />
                     </figure>
@@ -57,4 +58,5 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </section>
+    

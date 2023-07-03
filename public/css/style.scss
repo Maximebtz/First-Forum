@@ -5,6 +5,8 @@
 }
 
 body {
+    overflow-x: hidden;
+
     background: url(../img/BackGround.png);
     background-size: cover;
     min-height: 100vh;
@@ -26,7 +28,26 @@ body {
     }
 }
 
-
+#video-container {
+    position: relative;
+  }
+  
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: fadeOut 1s ease-in-out forwards;
+    z-index: 1;
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
     
 /********** Header **********/
 header {
@@ -166,13 +187,217 @@ nav {
 /******************** Acceuil ********************/ 
 
 /********** Section-1 **********/ 
+    .parallax-container {
+        height: 100vh;
+        overflow: hidden;
+    }
+    .the {
+        background: url(../img/BackGround-the.png);
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        -webkit-animation: slide-in-blurred-tl 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	        animation: slide-in-blurred-tl 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    }
 
-.title-background {
-    background-image: url(../img/Background-text.png);
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-}
+    @-webkit-keyframes slide-in-blurred-tl {
+        0% {
+          -webkit-transform: translate(-1000px, -1000px) skew(80deg, 10deg);
+                  transform: translate(-1000px, -1000px) skew(80deg, 10deg);
+          -webkit-transform-origin: 100% 0%;
+                  transform-origin: 100% 0%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-blurred-tl {
+        0% {
+          -webkit-transform: translate(-1000px, -1000px) skew(80deg, 10deg);
+                  transform: translate(-1000px, -1000px) skew(80deg, 10deg);
+          -webkit-transform-origin: 100% 0%;
+                  transform-origin: 100% 0%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+
+    .adventure {
+        background: url(../img/BackGround-adventurepng.png);
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        -webkit-animation: slide-in-blurred-bl 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) 1s both;
+	        animation: slide-in-blurred-bl 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) 1s both;
+    }
+
+    @-webkit-keyframes slide-in-blurred-bl {
+        0% {
+          -webkit-transform: translate(-1000px, 1000px) skew(-80deg, -10deg);
+                  transform: translate(-1000px, 1000px) skew(-80deg, -10deg);
+          -webkit-transform-origin: 100% 100%;
+                  transform-origin: 100% 100%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-blurred-bl {
+        0% {
+          -webkit-transform: translate(-1000px, 1000px) skew(-80deg, -10deg);
+                  transform: translate(-1000px, 1000px) skew(-80deg, -10deg);
+          -webkit-transform-origin: 100% 100%;
+                  transform-origin: 100% 100%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+
+    .begin {
+        background: url(../img/BackGround-begin.png);
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        -webkit-animation: slide-in-blurred-tr 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) 2s both;
+        animation: slide-in-blurred-tr 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) 2s both;
+    }
+
+    @-webkit-keyframes slide-in-blurred-tr {
+        0% {
+          -webkit-transform: translate(1000px, -1000px) skew(-80deg, -10deg);
+                  transform: translate(1000px, -1000px) skew(-80deg, -10deg);
+          -webkit-transform-origin: 0% 0%;
+                  transform-origin: 0% 0%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-blurred-tr {
+        0% {
+          -webkit-transform: translate(1000px, -1000px) skew(-80deg, -10deg);
+                  transform: translate(1000px, -1000px) skew(-80deg, -10deg);
+          -webkit-transform-origin: 0% 0%;
+                  transform-origin: 0% 0%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+                  transform: translate(0, 0) skew(0deg, 0deg);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+
+    .here {
+        background: url(../img/BackGround-here.png);
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        -webkit-animation: slide-in-blurred-bottom 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) 3s both;
+        animation: slide-in-blurred-bottom 1.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) 3s both;
+    }
+
+    @-webkit-keyframes slide-in-blurred-bottom {
+        0% {
+          -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                  transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+          -webkit-transform-origin: 50% 100%;
+                  transform-origin: 50% 100%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                  transform: translateY(0) scaleY(1) scaleX(1);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-blurred-bottom {
+        0% {
+          -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                  transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+          -webkit-transform-origin: 50% 100%;
+                  transform-origin: 50% 100%;
+          -webkit-filter: blur(40px);
+                  filter: blur(40px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                  transform: translateY(0) scaleY(1) scaleX(1);
+          -webkit-transform-origin: 50% 50%;
+                  transform-origin: 50% 50%;
+          -webkit-filter: blur(0);
+                  filter: blur(0);
+          opacity: 1;
+        }
+      }
 
 
 /********** Section-2 **********/ 
@@ -233,11 +458,15 @@ nav {
     max-height: max-content;
     background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
     overflow: hidden;
-    padding-bottom: 100px;
     -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
     
 }
+
+// .posts {
+//     display: flex;
+//     flex-direction: column;
+// }
 
 
 /******************** Forum ********************/ 
@@ -310,6 +539,8 @@ nav {
 
 
 .wrapper-posts {
+    display: flex;
+    flex-direction: column;
     margin: 150px 7% 100px 25%;
     .user-info {
         display: flex;
@@ -411,6 +642,8 @@ nav {
   .card {
     cursor: pointer;
     transition: all 0.4s ease-in-out;
+    position: relative;
+    border: solid 1px rgb(50, 50, 50);
   }
   
   
