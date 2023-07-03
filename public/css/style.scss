@@ -405,10 +405,10 @@ nav {
 .section-2 {
     min-height: 100vh;
     max-height: max-content;
-    background: linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
     overflow: hidden;
-    -webkit-backdrop-filter: blur(12.5px);
-    backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
     .wrapper-article {
         margin: 0 5% 0 25%;
         height: 100vh;
@@ -452,21 +452,6 @@ nav {
         }
     }
 }
-
-.section-2-posts {
-    min-height: 100vh;
-    max-height: max-content;
-    background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
-    overflow: hidden;
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
-    
-}
-
-// .posts {
-//     display: flex;
-//     flex-direction: column;
-// }
 
 
 /******************** Forum ********************/ 
@@ -520,19 +505,21 @@ nav {
     }
     
     button {
-        margin-bottom: 65px;
-        background: #202020;
+        margin: 65px 0;
         border-radius: 10px;
         border: 1px solid #505050;
         width: 300px;
         height: 35px;
         box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-        color: rgba(248, 248, 255, 0.500);
+        color: ghostwhite;
         font-size: large;
         transition: all 0.4s ease;
+        background: rgba(144, 144, 144, 0.50);
+        border: none;
         &:hover{
-            color: rgba(0, 0, 0, 0.50);
-            background: rgba(144, 144, 144, 0.50);
+            color: rgba(144, 144, 144);
+            background: rgba(248, 248, 255, 0.80);
+            border: none;
         }
     }
 }
@@ -586,26 +573,60 @@ nav {
         max-width: 700px;
         transition: all 0.4s ease-in-out;
     }
-    button {
+    .new-msg-btn {
+        // display: none;
         margin-top: 65px;
-        background: #202020;
         border-radius: 10px;
-        border: 1px solid #505050;
         width: 300px;
         height: 35px;
         box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-        color: rgba(248, 248, 255, 0.500);
+        color: ghostwhite;
         font-size: large;
         transition: all 0.4s ease;
+        background: rgba(144, 144, 144, 0.50);
+        border: none;
         &:hover{
-            color: rgba(0, 0, 0, 0.50);
-            background: rgba(144, 144, 144, 0.50);
+            color: rgba(144, 144, 144);
+            background: rgba(248, 248, 255, 0.80);
+            border: none;
         }
+    }
+    form {
+        width: max-content;
+        height: max-content;
+        position: relative;
+        margin-top: 65px;
+        display: none;
+        transition: all 0.4s ease;
+
+    }
+    .msg-sub-btn {
+        background-color: transparent;
+        border: none;
+        right: 10px;
+        bottom: 15px;
+        position: absolute;
+    }
+    textarea {
+        // display: none;
+        width: 500px;
+        min-height: 60px;
+        max-height: 150px;
+        height: max-content;
+        outline: none;
+        border-radius: 10px;
+        background-color: rgba(100,100,100);
+        color: ghostwhite;
+        padding: 15px 50px 15px 15px;
+        font-size: larger;
+        font-family: 'Poppins', sans-serif;
+    }
+    textarea::placeholder {
+        color: rgba(248, 248, 255, 0.3);
     }
 }
 
 .description {
-    margin-bottom: 35px;
     h1 {
         font-weight: 600;
         font-size: 35px;
@@ -620,6 +641,7 @@ nav {
         opacity: 60%;
         padding: 50px 15px;
         border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+        font-size: large;
     }
     .little-title {
         font-weight: 600;

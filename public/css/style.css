@@ -279,10 +279,10 @@ nav .darkmode .ellipse-12 {
   min-height: 100vh;
   max-height: -moz-max-content;
   max-height: max-content;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
   overflow: hidden;
-  -webkit-backdrop-filter: blur(12.5px);
-  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
 }
 .section-2 .wrapper-article {
   margin: 0 5% 0 25%;
@@ -326,16 +326,6 @@ nav .darkmode .ellipse-12 {
 .section-2 .wrapper-article h3 {
   font-size: 1.7em;
   padding-bottom: 5px;
-}
-
-.section-2-posts {
-  min-height: 100vh;
-  max-height: -moz-max-content;
-  max-height: max-content;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
-  overflow: hidden;
-  -webkit-backdrop-filter: blur(25px);
-  backdrop-filter: blur(25px);
 }
 
 /******************** Forum ********************/
@@ -388,20 +378,22 @@ nav .darkmode .ellipse-12 {
   margin-top: 25px;
 }
 .wrapper-list button {
-  margin-bottom: 65px;
-  background: #202020;
+  margin: 65px 0;
   border-radius: 10px;
   border: 1px solid #505050;
   width: 300px;
   height: 35px;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-  color: rgba(248, 248, 255, 0.5);
+  color: ghostwhite;
   font-size: large;
   transition: all 0.4s ease;
+  background: rgba(144, 144, 144, 0.5);
+  border: none;
 }
 .wrapper-list button:hover {
-  color: rgba(0, 0, 0, 0.5);
-  background: rgba(144, 144, 144, 0.5);
+  color: rgb(144, 144, 144);
+  background: rgba(248, 248, 255, 0.8);
+  border: none;
 }
 
 .wrapper-posts {
@@ -453,26 +445,61 @@ nav .darkmode .ellipse-12 {
   max-width: 700px;
   transition: all 0.4s ease-in-out;
 }
-.wrapper-posts button {
+.wrapper-posts .new-msg-btn {
   margin-top: 65px;
-  background: #202020;
   border-radius: 10px;
-  border: 1px solid #505050;
   width: 300px;
   height: 35px;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-  color: rgba(248, 248, 255, 0.5);
+  color: ghostwhite;
   font-size: large;
   transition: all 0.4s ease;
-}
-.wrapper-posts button:hover {
-  color: rgba(0, 0, 0, 0.5);
   background: rgba(144, 144, 144, 0.5);
+  border: none;
+}
+.wrapper-posts .new-msg-btn:hover {
+  color: rgb(144, 144, 144);
+  background: rgba(248, 248, 255, 0.8);
+  border: none;
+}
+.wrapper-posts form {
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: relative;
+  margin-top: 65px;
+  display: none;
+  transition: all 0.4s ease;
+}
+.wrapper-posts .msg-sub-btn {
+  background-color: transparent;
+  border: none;
+  right: 10px;
+  bottom: 15px;
+  position: absolute;
+}
+.wrapper-posts textarea {
+  width: 500px;
+  min-height: 60px;
+  max-height: 150px;
+  height: -moz-max-content;
+  height: max-content;
+  outline: none;
+  border-radius: 10px;
+  background-color: rgb(100, 100, 100);
+  color: ghostwhite;
+  padding: 15px 50px 15px 15px;
+  font-size: larger;
+  font-family: "Poppins", sans-serif;
+}
+.wrapper-posts textarea::-moz-placeholder {
+  color: rgba(248, 248, 255, 0.3);
+}
+.wrapper-posts textarea::placeholder {
+  color: rgba(248, 248, 255, 0.3);
 }
 
-.description {
-  margin-bottom: 35px;
-}
 .description h1 {
   font-weight: 600;
   font-size: 35px;
@@ -487,6 +514,7 @@ nav .darkmode .ellipse-12 {
   opacity: 60%;
   padding: 50px 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: large;
 }
 .description .little-title {
   font-weight: 600;

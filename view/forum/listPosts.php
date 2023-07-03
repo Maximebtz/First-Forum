@@ -4,7 +4,7 @@ $posts = $result["data"]['posts'];
 $topic = null;
 ?>
 
-<div class="section-2-posts">
+<div class="section-2">
     <div class="wrapper-posts">
         <div class="posts" id="posts">
             <?php
@@ -35,6 +35,27 @@ $topic = null;
             }
             ?>
         </div> 
-        <button>Nouveau</button>
+        
+        <input type="button" class="new-msg-btn" value="Nouveau message"></input>
+        <form action="" id="btn-convert-msg">
+            <textarea class="new-msg-text hidden" placeholder="Ecrire ici..."></textarea>
+            <button type="submit" class="msg-sub-btn"  ><img src="./public/img/icons8-envoyé-24.png" alt=""></button>
+        </form>
     </div>
 </div>
+<script>
+    const newMsgBtn = document.querySelector('.new-msg-btn');
+    const newMsgTextarea = document.querySelector('#btn-convert-msg');
+
+    function convertBtnToTextarea() {
+        // Rendre le bouton invisible
+        newMsgBtn.style.display = 'none';
+    
+        // Rendre la zone de texte visible
+        newMsgTextarea.style.display = 'block';
+    }
+
+    newMsgBtn.addEventListener('click', function() {
+        console.log(convertBtnToTextarea())
+    });
+</script>

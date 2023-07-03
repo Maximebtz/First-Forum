@@ -61,7 +61,7 @@
             </div>
         </nav>
         <main id="">
-                <?= $page ?>
+            <?= $page ?>
         </main>
         <footer>
             <div class="links">
