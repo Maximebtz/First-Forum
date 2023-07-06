@@ -503,25 +503,6 @@ nav {
         border: solid 1px rgb(50, 50, 50);
         margin-top: 25px;
     }
-    
-    button {
-        margin: 65px 0;
-        border-radius: 10px;
-        border: 1px solid #505050;
-        width: 300px;
-        height: 35px;
-        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-        color: ghostwhite;
-        font-size: large;
-        transition: all 0.4s ease;
-        background: rgba(144, 144, 144, 0.50);
-        border: none;
-        &:hover{
-            color: rgba(144, 144, 144);
-            background: rgba(248, 248, 255, 0.80);
-            border: none;
-        }
-    }
 }
 
 
@@ -573,58 +554,83 @@ nav {
         max-width: 700px;
         transition: all 0.4s ease-in-out;
     }
-    .new-msg-btn {
-        // display: none;
-        margin-top: 65px;
-        border-radius: 10px;
-        width: 300px;
-        height: 35px;
-        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-        color: ghostwhite;
-        font-size: large;
-        transition: all 0.4s ease;
-        background: rgba(144, 144, 144, 0.50);
-        border: none;
-        &:hover{
-            color: rgba(144, 144, 144);
-            background: rgba(248, 248, 255, 0.80);
-            border: none;
-        }
-    }
-    form {
-        width: max-content;
-        height: max-content;
-        position: relative;
-        margin-top: 65px;
-        display: none;
-        transition: all 0.4s ease;
+}
 
-    }
-    .msg-sub-btn {
-        background-color: transparent;
+.new-msg-btn {
+    // display: none;
+    margin: 65px 0;
+    border-radius: 10px;
+    width: 300px;
+    height: 35px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
+    color: ghostwhite;
+    font-size: large;
+    transition: all 0.4s ease;
+    background: rgba(144, 144, 144, 0.50);
+    border: none;
+    &:hover{
+        color: rgba(144, 144, 144);
+        background: rgba(248, 248, 255, 0.80);
         border: none;
-        right: 10px;
-        bottom: 15px;
-        position: absolute;
-    }
-    textarea {
-        // display: none;
-        width: 500px;
-        min-height: 60px;
-        max-height: 150px;
-        height: max-content;
-        outline: none;
-        border-radius: 10px;
-        background-color: rgba(100,100,100);
-        color: ghostwhite;
-        padding: 15px 50px 15px 15px;
-        font-size: larger;
-        font-family: 'Poppins', sans-serif;
-    }
-    textarea::placeholder {
-        color: rgba(248, 248, 255, 0.3);
     }
 }
+form {
+    flex-direction: column;
+    width: max-content;
+    height: max-content;
+    position: relative;
+    margin: 65px 0;
+    display: none;
+    transition: all 0.4s ease;
+    label {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+}
+.new-title-topic {
+    width: 500px;
+    min-height: 46px;
+    max-height: 150px;
+    height: max-content;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(100,100,100);
+    color: ghostwhite;
+    font-size: larger;
+    padding: 15px ;
+    border: none;
+    margin-bottom: 30px;
+    &:focus {
+        background-color: rgb(130, 130, 130);
+    }
+}
+.msg-sub-btn {
+    background-color: transparent;
+    border: none;
+    right: 10px;
+    bottom: 15px;
+    position: absolute;
+}
+textarea {
+    width: 500px;
+    min-height: 75px;
+    max-height: 150px;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(100,100,100);
+    color: ghostwhite;
+    padding: 15px 50px 15px 15px;
+    font-size: larger;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+        background-color: rgb(130, 130, 130);
+    }
+}
+textarea::placeholder {
+    color: rgba(248, 248, 255, 0.3);
+}
+
+
 
 .description {
     h1 {

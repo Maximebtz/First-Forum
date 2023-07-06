@@ -6,6 +6,7 @@ $category = null;
 ?>
 <div class="section-2">
     <div class="wrapper-list">
+    
         <?php
                 foreach($topics as $topic){
                     if ($category === null) {
@@ -13,8 +14,15 @@ $category = null;
                         echo "<div class='description'>
                                 <h1>" . $category->getName() . " </h1>
                                 <article>" . $category->getDescription() . "</article>
-                                <button>Créer un nouveau sujet</button>
-                                </div>
+                                <input type='button' class='new-msg-btn' value='Nouveau message'></input>
+                                <form action='' class='btn-convert-msg'>
+                                    <label for='title'>Titre :</label>
+                                    <input class='new-title-topic' type='text' name='title' id='title'>
+                                    <label for='description'>Description :</label>
+                                    <textarea class='new-msg-text hidden' name='description' id='description' placeholder='Décrire le nouveau sujet...'></textarea>
+                                    <button type='submit' class='msg-sub-btn'  ><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
+                                </form>
+                            </div>
                             <div class='cards' id='cards'>";
                     }
                     ?>
@@ -30,3 +38,20 @@ $category = null;
         </div> 
     </div>
 </div>
+<script>
+    const newMsgBtn = document.querySelector('.new-msg-btn');
+    const newMsgTextarea = document.querySelector('.btn-convert-msg');
+
+    function convertBtnToTextarea() {
+        // Rendre le bouton invisible
+        newMsgBtn.style.transition = 'all 2s ease-in-out'
+        newMsgTextarea.style.transition = 'all 2s ease-in-out';
+        newMsgBtn.style.display = 'none';
+        // Rendre la zone de texte visible
+        newMsgTextarea.style.display = 'flex';
+    }
+
+    newMsgBtn.addEventListener('click', function() {
+        console.log(convertBtnToTextarea())
+    });
+</script>

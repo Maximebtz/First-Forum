@@ -37,7 +37,7 @@ $topic = null;
         </div> 
         
         <input type="button" class="new-msg-btn" value="Nouveau message"></input>
-        <form action="" id="btn-convert-msg">
+        <form action="" class="btn-convert-msg">
             <textarea class="new-msg-text hidden" placeholder="Ecrire ici..."></textarea>
             <button type="submit" class="msg-sub-btn"  ><img src="./public/img/icons8-envoyé-24.png" alt=""></button>
         </form>
@@ -45,7 +45,7 @@ $topic = null;
 </div>
 <script>
     const newMsgBtn = document.querySelector('.new-msg-btn');
-    const newMsgTextarea = document.querySelector('#btn-convert-msg');
+    const newMsgTextarea = document.querySelector('.btn-convert-msg');
 
     function convertBtnToTextarea() {
         // Rendre le bouton invisible

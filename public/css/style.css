@@ -377,24 +377,6 @@ nav .darkmode .ellipse-12 {
   border: solid 1px rgb(50, 50, 50);
   margin-top: 25px;
 }
-.wrapper-list button {
-  margin: 65px 0;
-  border-radius: 10px;
-  border: 1px solid #505050;
-  width: 300px;
-  height: 35px;
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-  color: ghostwhite;
-  font-size: large;
-  transition: all 0.4s ease;
-  background: rgba(144, 144, 144, 0.5);
-  border: none;
-}
-.wrapper-list button:hover {
-  color: rgb(144, 144, 144);
-  background: rgba(248, 248, 255, 0.8);
-  border: none;
-}
 
 .wrapper-posts {
   display: flex;
@@ -445,8 +427,9 @@ nav .darkmode .ellipse-12 {
   max-width: 700px;
   transition: all 0.4s ease-in-out;
 }
-.wrapper-posts .new-msg-btn {
-  margin-top: 65px;
+
+.new-msg-btn {
+  margin: 65px 0;
   border-radius: 10px;
   width: 300px;
   height: 35px;
@@ -457,34 +440,59 @@ nav .darkmode .ellipse-12 {
   background: rgba(144, 144, 144, 0.5);
   border: none;
 }
-.wrapper-posts .new-msg-btn:hover {
+.new-msg-btn:hover {
   color: rgb(144, 144, 144);
   background: rgba(248, 248, 255, 0.8);
   border: none;
 }
-.wrapper-posts form {
+
+form {
+  flex-direction: column;
   width: -moz-max-content;
   width: max-content;
   height: -moz-max-content;
   height: max-content;
   position: relative;
-  margin-top: 65px;
+  margin: 65px 0;
   display: none;
   transition: all 0.4s ease;
 }
-.wrapper-posts .msg-sub-btn {
+form label {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.new-title-topic {
+  width: 500px;
+  min-height: 46px;
+  max-height: 150px;
+  height: -moz-max-content;
+  height: max-content;
+  outline: none;
+  border-radius: 10px;
+  background-color: rgb(100, 100, 100);
+  color: ghostwhite;
+  font-size: larger;
+  padding: 15px;
+  border: none;
+  margin-bottom: 30px;
+}
+.new-title-topic:focus {
+  background-color: rgb(130, 130, 130);
+}
+
+.msg-sub-btn {
   background-color: transparent;
   border: none;
   right: 10px;
   bottom: 15px;
   position: absolute;
 }
-.wrapper-posts textarea {
+
+textarea {
   width: 500px;
-  min-height: 60px;
+  min-height: 75px;
   max-height: 150px;
-  height: -moz-max-content;
-  height: max-content;
   outline: none;
   border-radius: 10px;
   background-color: rgb(100, 100, 100);
@@ -493,10 +501,15 @@ nav .darkmode .ellipse-12 {
   font-size: larger;
   font-family: "Poppins", sans-serif;
 }
-.wrapper-posts textarea::-moz-placeholder {
+textarea:focus {
+  background-color: rgb(130, 130, 130);
+}
+
+textarea::-moz-placeholder {
   color: rgba(248, 248, 255, 0.3);
 }
-.wrapper-posts textarea::placeholder {
+
+textarea::placeholder {
   color: rgba(248, 248, 255, 0.3);
 }
 
