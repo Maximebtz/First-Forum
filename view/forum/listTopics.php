@@ -22,10 +22,13 @@ $category = null;
                                     <textarea class='new-msg-text hidden' name='description' id='description-topic' placeholder='Décrire le nouveau sujet...'></textarea>
                                 <label for='post-topic'>Message :</label>
                                     <textarea class='new-msg-text hidden' name='text' id='post-topic' placeholder='Ecrire le premier message ici...'></textarea>
-                                <button type='submit' name='addNewTopic' class='msg-sub-btn'  ><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
+                                <button type='submit' name='addTopic' class='msg-sub-btn'  ><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
                             </form>
                         </div>
-                        <div class='cards' id='cards'>";
+                        <div class='cards' id='cards'>"; 
+                        // echo "<pre>";
+                        // var_dump($category);
+                        // echo "</pre>";
                 }
             ?>
             <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">

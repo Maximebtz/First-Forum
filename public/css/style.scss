@@ -27,7 +27,10 @@ body {
         border-radius: 20px; 
     }
 }
-
+pre {
+    max-height: 400px;
+    font-size: medium;
+}
 #video-container {
     position: relative;
   }

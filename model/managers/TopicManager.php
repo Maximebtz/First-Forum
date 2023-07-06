@@ -9,7 +9,7 @@
 
         protected $className = "Model\Entities\Topic";
         protected $tableName = "topic";
-
+        protected $tableDep = "post";
 
         public function __construct(){
             parent::connect();

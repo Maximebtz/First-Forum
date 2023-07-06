@@ -79,6 +79,33 @@
         }
 
 
+        public function addWithDepTable($data1, $data2) {
+            $keys1 = array_keys($data1);
+            $values1 = array_values($data1);
+            $sql1 = "INSERT INTO ".$this->tableName."
+                     (".implode(',', $keys1).") 
+                     VALUES
+                     ('".implode("','",$values1)."')";
+         
+            $keys2 = array_keys($data2);
+            $values2 = array_values($data2);
+            $sql2 = "INSERT INTO ".$this->tableDep."
+                     (".implode(',', $keys2).") 
+                     VALUES
+                     ('".implode("','",$values2)."')";
+         
+            try {
+               $result1 = DAO::insert($sql1);
+               $result2 = DAO::insert($sql2);
+               return [$result1, $result2]; // Retournez les résultats des deux insertions
+            } catch(\PDOException $e) {
+               echo $e->getMessage();
+               die();
+            }
+         }
+         
+
+
         public function addById($id, $data){
             //$keys = ['username' , 'password', 'email']
             $keys = array_keys($data);

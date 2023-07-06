@@ -79,12 +79,14 @@
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listCategories');
+
+
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
                     "category" => $categoryManager->add(["name" => $name, "description" => $description]),
                     "categories" => $categoryManager->findAll()
-                    // "topics" => $topicManager->findAll(["creationDate", "DESC"])
                     ]
                 ];
         }
@@ -98,18 +100,23 @@
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             date_default_timezone_set('Europe/Paris');
             $date = date('Y-m-d H:i:s');
-            $text = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_FULL_SPECIAL_CHARS).
+            $text = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             
             $topicManager = new TopicManager();
-            $postManager = new PostManager();
-            
+            // $postManager = new PostManager();
+            // var_dump($topicManager);
             header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listTopics&id=' . $idCategory .'');
             
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
-                    "topic" => $topicManager->add(['title' => $title, 'description' => $description, 'creationDate' => $date, 'category_id' => $idCategory]),
+                    "topic" => $topicManager->addWithDepTable(['title' => $title, 
+                                                                'description' => $description, 
+                                                                'creationDate' => $date, 
+                                                                'category_id' => $idCategory], 
+                                                            ['text' => $text, 
+                                                                'creationDate' => $date]),
                     // "post" => $postManager->add(['text' => $text, 'creationDate' => $date]),
                     "topics" => $topicManager->findAllTopicsByCategory($idCategory, ["creationDate", "DESC"])
                     ]
@@ -129,7 +136,7 @@
 
             
             var_dump($postManager);
-            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
+            // header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
             
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
