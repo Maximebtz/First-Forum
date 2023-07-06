@@ -8,24 +8,26 @@ $category = null;
     <div class="wrapper-list">
     
         <?php
-                foreach($topics as $topic){
-                    if ($category === null) {
-                        $category = $topic->getCategory();
-                        echo "<div class='description'>
-                                <h1>" . $category->getName() . " </h1>
-                                <article>" . $category->getDescription() . "</article>
-                                <input type='button' class='new-msg-btn' value='Nouveau Topic'></input>
-                                <form action='index.php?ctrl=forum&action=addTopic&id=".$category->getId()."' method='post' class='btn-convert-msg'>
-                                    <label for='title-topic'>Titre :</label>
+            foreach($topics as $topic){
+                if ($category === null) {
+                    $category = $topic->getCategory();
+                    echo "<div class='description'>
+                            <h1>" . $category->getName() . " </h1>
+                            <article>" . $category->getDescription() . "</article>
+                            <input type='button' class='new-msg-btn' value='Nouveau Topic'></input>
+                            <form action='index.php?ctrl=forum&action=addTopic&id=" . $category->getId() . "' method='post' class='btn-convert-msg'>
+                                <label for='title-topic'>Titre :</label>
                                     <input class='new-title-topic' type='text' name='title' id='title-topic'>
-                                    <label for='description-topic'>Description :</label>
+                                <label for='description-topic'>Description :</label>
                                     <textarea class='new-msg-text hidden' name='description' id='description-topic' placeholder='Décrire le nouveau sujet...'></textarea>
-                                    <button type='submit' name='addNewTopic' class='msg-sub-btn'  ><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
-                                </form>
-                            </div>
-                            <div class='cards' id='cards'>";
-                    }
-                    ?>
+                                <label for='post-topic'>Message :</label>
+                                    <textarea class='new-msg-text hidden' name='text' id='post-topic' placeholder='Ecrire le premier message ici...'></textarea>
+                                <button type='submit' name='addNewTopic' class='msg-sub-btn'  ><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
+                            </form>
+                        </div>
+                        <div class='cards' id='cards'>";
+                }
+            ?>
             <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                 <div class='card'>
                     <h3><?= $topic->getTitle() ?></h3>
