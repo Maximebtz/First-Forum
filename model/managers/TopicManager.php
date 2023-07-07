@@ -29,22 +29,22 @@
             );
         }
 
-        public function addNewTopic($data){
+        // public function addNewTopic($data){
 
-            $keys = array_keys($data);
+        //     $keys = array_keys($data);
 
-            $values = array_values($data);
+        //     $values = array_values($data);
             
-            $sql = "INSERT INTO ".$this->tableName."
-                    (".implode(',', $keys).") 
-                    VALUES
-                    ('".implode("','",$values)."')";
-            try{
-                return DAO::insert($sql);
-            }
-            catch(\PDOException $e){
-                echo $e->getMessage();
-                die();
-            }
-        }
+        //     $sql = "INSERT INTO ".$this->tableName."
+        //             (".implode(',', $keys).") 
+        //             VALUES
+        //             ('".implode("','",$values)."')";
+        //     try{
+        //         return DAO::insert($sql);
+        //     }
+        //     catch(\PDOException $e){
+        //         echo $e->getMessage();
+        //         die();
+        //     }
+        // }
     }

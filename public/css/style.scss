@@ -577,6 +577,7 @@ nav {
         border: none;
     }
 }
+
 form {
     flex-direction: column;
     width: max-content;
@@ -719,18 +720,59 @@ textarea::placeholder {
   }
 
 
+/******************** Delete ********************/ 
 
+.delete-btn {
+    position: absolute;
+    font-size: larger;
+    font-weight: 500;
+    // background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    float: right;
+    right: 15px;
+    top: 15px;
+    z-index: 3;
+    transition: all 0.2s ease-in-out;
+    color: #808080;
+    border-radius: 10px;
+    background: #555555;
+    box-shadow:  0px 0px 15px #444444;
+    &:hover {
+        color: #ffff;
+        transform: scale(1.05);
+    }
+}
+.delete-action {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+}
+.delete-form {
+    display: none;
+    justify-content: flex-end;
+}
+.dont-delete {
+    width: 200px;
+    background: ghostwhite;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    color: #616161;
+}
 
-
-
-
-
-
-
-
-
-
-
+.conf-delete {
+    width: 200px;
+    background: red;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    color: ghostwhite;
+    margin: 20px 0px;
+}
 
 
 

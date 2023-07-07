@@ -104,19 +104,24 @@
 
             
             $topicManager = new TopicManager();
-            // $postManager = new PostManager();
+            $postManager = new PostManager();
+            
+            $idTopic = $topicManager->add(['title' => $title, 
+                                            'description' => $description, 
+                                            'creationDate' => $date, 
+                                            'category_id' => $idCategory]);
+                                                        
+                        $postManager->add(['text' => $text, 
+                                            'creationDate' => $date,
+                                            'topic_id' => $idTopic]);
+
+
             // var_dump($topicManager);
             header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listTopics&id=' . $idCategory .'');
             
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
-                    "topic" => $topicManager->addWithDepTable(['title' => $title, 
-                                                                'description' => $description, 
-                                                                'creationDate' => $date, 
-                                                                'category_id' => $idCategory], 
-                                                            ['text' => $text, 
-                                                                'creationDate' => $date]),
                     // "post" => $postManager->add(['text' => $text, 'creationDate' => $date]),
                     "topics" => $topicManager->findAllTopicsByCategory($idCategory, ["creationDate", "DESC"])
                     ]
@@ -135,8 +140,8 @@
             $date = date('Y-m-d H:i:s');
 
             
-            var_dump($postManager);
-            // header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
+            // var_dump($postManager);
+            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
             
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
@@ -148,3 +153,6 @@
 
         }
     }
+
+
+/********** Delete **********/ 

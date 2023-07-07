@@ -19,8 +19,16 @@ $categories = $result["data"]['categories'];
             <?php
                 foreach($categories as $category ){
             ?>
+                <div class="delete-form">
+                    <form class="delete-action" action="">
+                        <p>Êtes-vous sûr de vouloir supprimer ?</p>
+                        <input class="conf-delete" type="submit" value="Supprimer">
+                        <input class="dont-delete" type="button" value="Non">
+                    </form>
+                </div>
                 <a href="index.php?ctrl=forum&action=listTopics&id=<?= $category->getId() ?>">
                     <div class='card'>
+                        <button class="delete-btn" data-card-id="<?= $category->getId() ?>">x</button>
                         <h3><?= $category->getName() ?> :</h3>
                         <p><?= $category->getDescription() ?></p>
                     </div>
@@ -32,21 +40,47 @@ $categories = $result["data"]['categories'];
     </div>
 </div>
 <script>
+    
+    document.getElementById("cards").onmousemove = e => {
+        for(const card of document.getElementsByClassName("card")) {
+        const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+    
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+        };
+    }
+
+
     const newMsgBtn = document.querySelector('.new-msg-btn');
     const newMsgTextarea = document.querySelector('.btn-convert-msg');
 
     function convertBtnToTextarea() {
         // Rendre le bouton invisible
-        newMsgBtn.style.transition = 'all 2s ease-in-out'
-        newMsgTextarea.style.transition = 'all 2s ease-in-out';
         newMsgBtn.style.display = 'none';
         // Rendre la zone de texte visible
         newMsgTextarea.style.display = 'flex';
     }
 
     newMsgBtn.addEventListener('click', function() {
-        console.log(convertBtnToTextarea())
+        convertBtnToTextarea()
     });
+
+// Get all delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    // Add event listeners to each delete button
+    deleteButtons.forEach(deleteBtn => {
+        deleteBtn.addEventListener('click', (e) => {
+            const cardId = deleteBtn.getAttribute('data-card-id');
+            const deleteForm = document.querySelector(`[data-card-id="${cardId}"] + .delete-form`);
+
+            // Toggle visibility of delete form
+            deleteForm.style.display = deleteForm.style.display === 'none' ? 'flex' : 'none';
+        });
+    });
+
 </script>
 
 

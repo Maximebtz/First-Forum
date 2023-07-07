@@ -44,13 +44,15 @@ $topic = null;
         </div> 
 
         <input type="button" class="new-msg-btn" value="Nouveau message"></input>
-        <form action="index.php?ctrl=forum&action=addPost&id=<?= $topic->getId() ?>" method="post" class="btn-convert-msg">
+        <form action="index.php?ctrl=forum&action=addPost&id=<?= $_GET['id'] ?>" method="post" class="btn-convert-msg">
             <textarea class="new-msg-text hidden" name="text" placeholder="Ecrire ici..."></textarea>
             <button type="submit" class="msg-sub-btn"  ><img src="./public/img/icons8-envoyé-24.png" alt=""></button>
         </form>
     </div>
 </div>
 <script>
+
+
     const newMsgBtn = document.querySelector('.new-msg-btn');
     const newMsgTextarea = document.querySelector('.btn-convert-msg');
 

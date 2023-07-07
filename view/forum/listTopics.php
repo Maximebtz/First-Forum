@@ -33,6 +33,7 @@ $category = null;
             ?>
             <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                 <div class='card'>
+                    <button class="delete">x</button>
                     <h3><?= $topic->getTitle() ?></h3>
                     <p><?= $topic->getCreationDate() ?></p>
                 </div>
@@ -44,13 +45,24 @@ $category = null;
     </div>
 </div>
 <script>
+
+    document.getElementById("cards").onmousemove = e => {
+        for(const card of document.getElementsByClassName("card")) {
+        const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+    
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+        };
+    }
+
+
     const newMsgBtn = document.querySelector('.new-msg-btn');
     const newMsgTextarea = document.querySelector('.btn-convert-msg');
 
     function convertBtnToTextarea() {
         // Rendre le bouton invisible
-        newMsgBtn.style.transition = 'all 2s ease-in-out'
-        newMsgTextarea.style.transition = 'all 2s ease-in-out';
         newMsgBtn.style.display = 'none';
         // Rendre la zone de texte visible
         newMsgTextarea.style.display = 'flex';
