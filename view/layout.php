@@ -47,18 +47,16 @@
                 <h3>Contacts</h3>
             </div>
         </div>
-        <div class="darkmode" >
-            <div class="dark-mode-icon">
+        <div class="light-mode" >
+            <div class="light-mode-icon">
                 <img class="moon-symbol" src="./public/img/Moon-Symbol.png" />
                 <img class="sun" src="./public/img/sun.png" />
             </div>
-            <div class="dark-mode-switch-bar">
-                <div class="rectangle-7" >
-                    <div class="ellipse-12" >
-                        </div>
-                    </div>
-                </div>
+            <div class="light-mode-switch-bar">
+                <input type="checkbox" hidden="hidden" id="light-mode">
+                <label class="switch" for="light-mode"></label>
             </div>
+        </div>
         </nav>
         <main id="">
             <?= $page ?>
@@ -107,6 +105,13 @@
                 </div>
             </div>
         </footer>
-        <script src="./public/js/script.js"></script>
+        <script >
+            const themeBtn = document.getElementById('light-mode')
+            themeBtn.addEventListener('click', () =>{
+                let element = document.body;
+                element.classList.toggle('light-mode')
+
+            })
+        </script>
     </body>
     </html>

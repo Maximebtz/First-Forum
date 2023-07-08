@@ -1,15 +1,55 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
+}
+
+:root {
+  --background-img: url(../img/BackGround.png);
+  --color-navbar: rgba(80, 80, 80, 0.4);
+  --color-light-text-color: rgba(248, 248, 255, 0.5);
+  --color-strong-text-color: ghostwhite;
+  --color-section-2: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
+  --color-card: rgba(16, 16, 16, 0.70);
+  --color-cards: rgba(30, 30, 30, 0.8);
+  --color-footer: rgba(15, 15, 15, 0.9);
+  --color-button: rgba(144, 144, 144, 0.5);
+  --color-border: 1px solid #303030;
+  --boxshadow: box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+  --background-home-1: url(../img/BackGround-the.png);
+  --background-home-2: url(../img/BackGround-adventurepng.png);
+  --background-home-3: url(../img/BackGround-begin.png);
+  --background-home-4: url(../img/BackGround-here.png);
+}
+
+.light-mode {
+  --background-img: url(../img/pexels-martin-péchy-2763964.jpg);
+  --color-navbar: rgb(67, 101, 139);
+  --color-light-text-color: rgb(78, 137, 174);
+  --color-strong-text-color: rgb(67, 101, 139);
+  --btn-text: ghostwhite;
+  --color-section-2: rgb(249, 245, 235, 0.5);
+  --color-card: rgb(237, 102, 99);
+  --color-cards: rgb(228, 220, 207, 0.5);
+  --color-footer: rgb(237, 102, 99, 0.9);
+  --color-button: rgb(67, 101, 139);
+  --color-border: 1px solid rgb(237, 102, 99);
+  --background-home-1: none;
+  --background-home-2: none;
+  --background-home-3: none;
+  --background-home-4: none;
+  --background-position: center;
 }
 
 body {
   overflow-x: hidden;
-  background: url(../img/BackGround.png);
+  background: var(--background-img);
   background-size: cover;
-  min-height: 100vh;
   background-attachment: fixed;
+  background-position-y: var(--background-position);
+  min-height: 100vh;
   font-family: "Poppins", sans-serif;
   color: ghostwhite;
   scroll-behavior: smooth;
@@ -63,21 +103,21 @@ header {
   z-index: 1;
 }
 header .login-btn {
-  background: rgba(144, 144, 144, 0.5);
+  background: var(--color-button);
   border-radius: 10px;
   width: 100px;
   height: 46px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--boxshadow);
   -webkit-backdrop-filter: blur(12.5px);
           backdrop-filter: blur(12.5px);
   border: none;
-  color: ghostwhite;
+  color: var(--white);
   font-size: 1.2em;
   transition: all 0.4s ease-in-out;
 }
 header .login-btn:hover {
-  background: ghostwhite;
-  color: rgb(144, 144, 144);
+  background: rgba(248, 248, 255, 0.8);
+  color: var(--color-strong-text-color);
 }
 
 /********** NavBar **********/
@@ -92,10 +132,10 @@ nav {
   width: 15%;
   min-width: 250px;
   border-radius: 20px;
-  background: rgba(80, 80, 80, 0.4);
+  background: var(--color-navbar);
   -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0 25px;
+  box-shadow: var(--boxshadow);
   padding: 25px;
   z-index: 1;
 }
@@ -143,41 +183,62 @@ nav .contacts h3 {
   font-weight: 500;
   font-size: large;
 }
-nav .darkmode {
+nav .light-mode {
   width: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-nav .darkmode .dark-mode-icon {
+nav .light-mode .light-mode-icon {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-nav .darkmode .dark-mode-icon .moon-symbol {
+nav .light-mode .light-mode-icon .moon-symbol {
   opacity: 70%;
   width: 20px;
   height: 20px;
 }
-nav .darkmode .dark-mode-icon .sun {
+nav .light-mode .light-mode-icon .sun {
   opacity: 30%;
   width: 20px;
   height: 20px;
 }
-nav .darkmode .rectangle-7 {
-  background: rgba(144, 144, 144, 0.5);
-  border-radius: 20px;
+nav .light-mode .switch {
+  display: inline-block;
+  position: relative;
   width: 50px;
   height: 25px;
-  DISPLAY: flex;
-  align-items: center;
   padding: 2px;
+  border-radius: 20px;
+  background: rgba(144, 144, 144, 0.5);
+  transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+  cursor: pointer;
 }
-nav .darkmode .ellipse-12 {
-  background: rgba(51, 51, 51, 0.8);
-  border-radius: 50%;
+nav .light-mode .switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
   width: 21px;
   height: 21px;
+  background: rgba(51, 51, 51, 0.8);
+  border-radius: 50%;
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+nav .light-mode .switch:active::before {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(128, 128, 128, 0.1);
+}
+nav .light-mode input:checked + .switch {
+  background: rgb(78, 137, 174);
+}
+nav .light-mode input:checked + .switch::before {
+  left: 27px;
+  background: #fff;
+}
+nav .light-mode input:checked + .switch:active::before {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /******************** Acceuil ********************/
@@ -188,7 +249,7 @@ nav .darkmode .ellipse-12 {
 }
 
 .the {
-  background: url(../img/BackGround-the.png);
+  background: var(--background-home-1);
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -211,7 +272,7 @@ nav .darkmode .ellipse-12 {
   }
 }
 .adventure {
-  background: url(../img/BackGround-adventurepng.png);
+  background: var(--background-home-2);
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -234,7 +295,7 @@ nav .darkmode .ellipse-12 {
   }
 }
 .begin {
-  background: url(../img/BackGround-begin.png);
+  background: var(--background-home-3);
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -257,7 +318,7 @@ nav .darkmode .ellipse-12 {
   }
 }
 .here {
-  background: url(../img/BackGround-here.png);
+  background: var(--background-home-4);
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -284,7 +345,7 @@ nav .darkmode .ellipse-12 {
   min-height: 100vh;
   max-height: -moz-max-content;
   max-height: max-content;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
+  background: var(--color-section-2);
   overflow: hidden;
   -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
@@ -302,9 +363,9 @@ nav .darkmode .ellipse-12 {
   height: 250px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 1px solid #505050;
-  background: #1F1F1F;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.3);
+  border: var(--color-border);
+  background: var(--color-card);
+  box-shadow: var(--boxshadow);
   overflow: hidden;
 }
 .section-2 .wrapper-article .article figure {
@@ -360,13 +421,13 @@ nav .darkmode .ellipse-12 {
 .wrapper-list .cards {
   -webkit-backdrop-filter: blur(25px);
           backdrop-filter: blur(25px);
-  background: rgba(32, 32, 32, 0.8);
+  background: var(--color-cards);
   min-height: 680px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   padding: 50px;
-  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--boxshadow);
 }
 .wrapper-list .cards a {
   color: ghostwhite;
@@ -374,12 +435,12 @@ nav .darkmode .ellipse-12 {
 }
 .wrapper-list .card {
   border-radius: 10px;
-  background: rgba(16, 16, 16, 0.7);
+  background: var(--color-card);
   cursor: pointer;
   padding: 25px;
   transition: all 0.4s ease-in-out;
   position: relative;
-  border: solid 1px rgb(50, 50, 50);
+  border: var(--color-border);
   margin-top: 25px;
 }
 
@@ -417,7 +478,7 @@ nav .darkmode .ellipse-12 {
 }
 .wrapper-posts .first-user {
   border-radius: 15px 15px 15px 5px;
-  background: rgba(15, 15, 15, 0.9);
+  background: var(--color-button);
   padding: 25px;
   margin-top: 25px;
   max-width: 700px;
@@ -425,7 +486,7 @@ nav .darkmode .ellipse-12 {
 }
 .wrapper-posts .other-user {
   border-radius: 15px 5px 15px 15px;
-  background: rgba(30, 30, 30, 0.8);
+  background: var(--color-footer);
   padding: 25px;
   float: right;
   margin-top: 50px;
@@ -438,15 +499,15 @@ nav .darkmode .ellipse-12 {
   border-radius: 10px;
   width: 300px;
   height: 35px;
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.25);
-  color: ghostwhite;
+  box-shadow: var(--boxshadow);
+  color: var(--white);
   font-size: large;
   transition: all 0.4s ease;
-  background: rgba(144, 144, 144, 0.5);
+  background: var(--color-button);
   border: none;
 }
 .new-msg-btn:hover {
-  color: rgb(144, 144, 144);
+  color: var(--color-button);
   background: rgba(248, 248, 255, 0.8);
   border: none;
 }
@@ -465,6 +526,7 @@ form {
 form label {
   font-size: 25px;
   margin-bottom: 5px;
+  color: var(--color-strong-text-color);
 }
 
 .new-title-topic {
@@ -475,15 +537,12 @@ form label {
   height: max-content;
   outline: none;
   border-radius: 10px;
-  background-color: rgb(100, 100, 100);
-  color: ghostwhite;
+  background-color: var(--color-light-text-color);
+  color: var(--btn-text);
   font-size: larger;
   padding: 15px;
   border: none;
   margin-bottom: 30px;
-}
-.new-title-topic:focus {
-  background-color: rgb(130, 130, 130);
 }
 
 .msg-sub-btn {
@@ -499,15 +558,13 @@ textarea {
   min-height: 75px;
   max-height: 150px;
   outline: none;
+  border: none;
   border-radius: 10px;
-  background-color: rgb(100, 100, 100);
-  color: ghostwhite;
+  background-color: var(--color-light-text-color);
+  color: var(--btn-text);
   padding: 15px 50px 15px 15px;
   font-size: larger;
   font-family: "Poppins", sans-serif;
-}
-textarea:focus {
-  background-color: rgb(130, 130, 130);
 }
 
 textarea::-moz-placeholder {
@@ -525,13 +582,14 @@ textarea::placeholder {
   text-underline-offset: 10px;
   width: 55%;
   padding: 0 0 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-strong-text-color);
+  border-bottom: 1px solid var(--color-light-text-color);
 }
 .description article {
   width: 800px;
-  opacity: 60%;
   padding: 50px 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid var(--color-light-text-color);
+  color: var(--color-light-text-color);
   font-size: large;
 }
 .description .little-title {
@@ -541,7 +599,7 @@ textarea::placeholder {
   text-underline-offset: 10px;
   width: 80%;
   padding: 0 0 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid var(--color-light-text-color);
 }
 
 /******************** Cards ********************/
@@ -553,7 +611,7 @@ textarea::placeholder {
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   position: relative;
-  border: solid 1px rgb(50, 50, 50);
+  border: var(--color-border);
 }
 
 .card:hover::before {
@@ -601,7 +659,7 @@ textarea::placeholder {
   position: absolute;
   font-size: larger;
   font-weight: 500;
-  border: none;
+  border: var(--color-border);
   padding: 5px 10px;
   float: right;
   right: 15px;
@@ -610,8 +668,8 @@ textarea::placeholder {
   transition: all 0.2s ease-in-out;
   color: #808080;
   border-radius: 10px;
-  background: #555555;
-  box-shadow: 0px 0px 15px #444444;
+  background: var(--color-button);
+  box-shadow: var(--boxshadow);
 }
 .delete-btn:hover {
   color: white;
@@ -632,7 +690,7 @@ textarea::placeholder {
 
 .dont-delete {
   width: 200px;
-  background: ghostwhite;
+  background: var(--color-strong-text-color);
   height: 35px;
   border-radius: 10px;
   border: none;
@@ -647,7 +705,7 @@ textarea::placeholder {
   border-radius: 10px;
   border: none;
   font-size: large;
-  color: ghostwhite;
+  color: var(--color-strong-text-color);
   margin: 20px 0px;
 }
 
@@ -658,7 +716,7 @@ footer {
   justify-content: space-between;
   padding: 0 5% 0 25%;
   height: 400px;
-  background: rgba(16, 16, 16, 0.9);
+  background: var(--color-footer);
 }
 footer h4 {
   font-size: 25px;

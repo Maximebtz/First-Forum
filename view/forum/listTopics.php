@@ -33,7 +33,7 @@ $category = null;
             ?>
             <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                 <div class='card'>
-                    <button class="delete">x</button>
+                    <button class="delete-btn">x</button>
                     <h3><?= $topic->getTitle() ?></h3>
                     <p><?= $topic->getCreationDate() ?></p>
                 </div>
