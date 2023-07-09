@@ -79,13 +79,14 @@
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+            $categoryManager->add(["name" => $name, "description" => $description]);
+            
             header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listCategories');
 
 
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
-                    "category" => $categoryManager->add(["name" => $name, "description" => $description]),
                     "categories" => $categoryManager->findAll()
                     ]
                 ];
@@ -140,19 +141,53 @@
             $date = date('Y-m-d H:i:s');
 
             
+            $postManager->findAllPostsByTopics($idTopic, ["creationDate", "ASC"]);
             // var_dump($postManager);
             header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
             
             return [
                 "view" => VIEW_DIR."forum/listPosts.php",
                 "data" => [
-                    "posts" => $postManager->findAllPostsByTopics($idTopic, ["creationDate", "ASC"]),
                     "post" => $postManager->add(['text' => $post, 'creationDate' => $date, 'topic_id' => $idTopic])
                     ]
                 ];
 
         }
-    }
+    
 
 
 /********** Delete **********/ 
+
+    public function deleteCategory($idCategory){
+
+        $categoryManager = new categoryManager();
+
+        $categoryManager->delete($idCategory);
+
+        header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listCategories');
+
+        return [
+            "view" => VIEW_DIR."forum/listCategories.php",
+            "data" => [
+                "categories" => $categoryManager->findAll()
+                ]
+            ];
+    }
+
+
+    public function deleteTopic($idTopic){
+
+        $topicManager = new topicManager();
+
+        $topicManager->delete($idTopic);
+
+        header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listTopic&id=' . $idTopic .'');
+
+        return [
+            "view" => VIEW_DIR."forum/listTopic.php",
+            "data" => [
+                "topics" => $topicManager->findAll()
+                ]
+            ];
+    }
+}

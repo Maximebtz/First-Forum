@@ -36,7 +36,6 @@
                 <div class="link">
                     <img src="./public/img/Brainstorm Skill.png" alt="inspiration icon">
                     <a id="inspiration" href="#">Inspirations</a>
-                    
                 </div>
                 <div class="link">
                     <img src="./public/img/Crystal Ball.png" alt="tips icon">
@@ -57,61 +56,78 @@
                 <label class="switch" for="light-mode"></label>
             </div>
         </div>
-        </nav>
-        <main id="">
-            <?= $page ?>
-        </main>
-        <footer>
-            <div class="links">
-                <h4>
-                    TBF·Travel
-                </h4>
-                <p>
-                    World traveler community
-                </p>
-                <figure>
-                    <img src="./public/img/Instagram.png" alt="" class="social-media">
-                    <img src="./public/img/Facebook.png" alt="" class="social-media">
-                    <img src="./public/img/Twitter.png" alt="" class="social-media">        
-                </figure>
+    </nav>
+    <main id="">
+        <?= $page ?>
+    </main>
+    <footer>
+        <div class="links">
+            <h4>
+                TBF·Travel
+            </h4>
+            <p>
+                World traveler community
+            </p>
+            <figure>
+                <img src="./public/img/Instagram.png" alt="" class="social-media">
+                <img src="./public/img/Facebook.png" alt="" class="social-media">
+                <img src="./public/img/Twitter.png" alt="" class="social-media">        
+            </figure>
+        </div>
+        <div class="footer-lists">
+            <div class="footer-list">
+                <h5>
+                    TBF
+                </h5>
+                <a href="" class="a-tbf">Qui sommes-nous ?</a>
+                <a href="" class="a-tbf">Ecrivez-nous</a>
+                <a href="" class="a-tbf">Road-Trips</a>
+                <a href="" class="a-tbf">Trouver un compagnon de voyage</a>
             </div>
-            <div class="footer-lists">
-                <div class="footer-list">
-                    <h5>
-                        TBF
-                    </h5>
-                    <a href="" class="a-tbf">Qui sommes-nous ?</a>
-                    <a href="" class="a-tbf">Ecrivez-nous</a>
-                    <a href="" class="a-tbf">Road-Trips</a>
-                    <a href="" class="a-tbf">Trouver un compagnon de voyage</a>
-                </div>
-                <div class="footer-list">
-                    <h5>
-                        Guide
-                    </h5>
-                    <a href="" class="a-guide">F.A.Q.</a>
-                    <a href="" class="a-guide">L'histoire du voyage</a>
-                </div>
-                <div class="footer-list">
-                    <h5>
-                        Services
-                    </h5>
-                    <a href="" class="a-services">Newsletter</a>
-                    <a href="" class="a-services">Playlist</a>
-                    <a href="" class="a-services">Trouver un hôtel</a>
-                    <a href="" class="a-services">Trouver un avion</a>
-                    <a href="" class="a-services">Trouver un train</a>
-                    <a href="" class="a-services">Trouver une voiture</a>
-                </div>
+            <div class="footer-list">
+                <h5>
+                    Guide
+                </h5>
+                <a href="" class="a-guide">F.A.Q.</a>
+                <a href="" class="a-guide">L'histoire du voyage</a>
             </div>
-        </footer>
-        <script >
-            const themeBtn = document.getElementById('light-mode')
-            themeBtn.addEventListener('click', () =>{
-                let element = document.body;
-                element.classList.toggle('light-mode')
+            <div class="footer-list">
+                <h5>
+                    Services
+                </h5>
+                <a href="" class="a-services">Newsletter</a>
+                <a href="" class="a-services">Playlist</a>
+                <a href="" class="a-services">Trouver un hôtel</a>
+                <a href="" class="a-services">Trouver un avion</a>
+                <a href="" class="a-services">Trouver un train</a>
+                <a href="" class="a-services">Trouver une voiture</a>
+            </div>
+        </div>
+    </footer>
+    <script>
 
-            })
-        </script>
-    </body>
-    </html>
+
+        /********** deleteForm ********/    
+
+        const themeBtn = document.getElementById('light-mode');
+        const body = document.body;
+    
+        // Vérifier l'état actuel du mode et le restaurer lors du chargement de la page
+        if (localStorage.getItem('lightMode') === 'true') {
+            body.classList.add('light-mode');
+            themeBtn.checked = true;
+        }
+    
+        // Écouter l'événement de clic sur le bouton du mode lumière
+        themeBtn.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                localStorage.setItem('lightMode', 'false');
+            } else {
+                body.classList.add('light-mode');
+                localStorage.setItem('lightMode', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
