@@ -633,6 +633,7 @@ form {
         color: var(--color-strong-text-color);
     }
 }
+
 .new-title-topic {
     width: 500px;
     min-height: 46px;
@@ -647,19 +648,22 @@ form {
     border: none;
     margin-bottom: 30px;
 }
+
 .msg-sub-btn {
     background-color: transparent;
     border: none;
     right: 10px;
-    bottom: 15px;
+    bottom: 35px;
     position: absolute;
 }
+
 textarea {
     width: 500px;
     min-height: 75px;
     max-height: 150px;
     outline: none;
     border: none;
+    margin-bottom: 25px;
     border-radius: 10px;
     background-color: var(--color-light-text-color);
     color: var(--btn-text);
@@ -667,6 +671,7 @@ textarea {
     font-size: larger;
     font-family: 'Poppins', sans-serif;
 }
+
 textarea::placeholder {
     color: rgba(248, 248, 255, 0.3);
 }

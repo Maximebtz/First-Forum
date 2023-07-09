@@ -523,7 +523,7 @@ form label {
   background-color: transparent;
   border: none;
   right: 10px;
-  bottom: 15px;
+  bottom: 35px;
   position: absolute;
 }
 
@@ -533,6 +533,7 @@ textarea {
   max-height: 150px;
   outline: none;
   border: none;
+  margin-bottom: 25px;
   border-radius: 10px;
   background-color: var(--color-light-text-color);
   color: var(--btn-text);

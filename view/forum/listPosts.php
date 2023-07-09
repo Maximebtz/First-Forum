@@ -53,18 +53,21 @@ $topic = null;
 <script>
 
 
-    // const newMsgBtn = document.querySelector('.new-msg-btn');
-    // const newMsgTextarea = document.querySelector('.btn-convert-msg');
+    /********** addMessage********/ 
 
-    // function convertBtnToTextarea() {
-    //     // Rendre le bouton invisible
-    //     newMsgBtn.style.display = 'none';
+    const newMsgBtn = document.querySelector('.new-msg-btn');
+    const newMsgTextarea = document.querySelector('.btn-convert-msg');
+
+    function convertBtnToTextarea() {
+        // Rendre le bouton invisible
+        newMsgBtn.style.display = 'none';
     
-    //     // Rendre la zone de texte visible
-    //     newMsgTextarea.style.display = 'block';
-    // }
+        // Rendre la zone de texte visible
+        newMsgTextarea.style.display = 'block';
+    }
 
-    // newMsgBtn.addEventListener('click', function() {
-    //     console.log(convertBtnToTextarea())
-    // });
+    newMsgBtn.addEventListener('click', function() {
+        console.log(convertBtnToTextarea())
+    });
+    
 </script>
