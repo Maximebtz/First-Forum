@@ -3,6 +3,20 @@
     margin: 0;
     box-sizing: border-box;
     transition: all 0.4s ease-in-out;
+    &::-webkit-scrollbar {
+        width: 7px; 
+        border-radius: 20px; 
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: rgb(80, 80, 80, 0.5);
+        border-radius: 20px; 
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(32, 32, 32, 0.70); 
+        border-radius: 20px; 
+    }
 }
 
 :root{
@@ -522,6 +536,7 @@ nav {
     }
     p {
         opacity: 70%;
+        padding-right: 20px;
     }
     .cards {
         backdrop-filter: blur(25px);
@@ -541,7 +556,7 @@ nav {
         border-radius: 10px;
         background: var(--color-card);
         cursor: pointer;
-        padding: 25px;
+        padding: 25px 50px 25px 25px;
         transition: all 0.4s ease-in-out;
         position: relative;
         border: var(--color-border);
@@ -768,38 +783,35 @@ textarea::placeholder {
 .delete-btn {
     position: absolute;
     display: flex;
-    font-size: larger;
-    font-weight: 500;
-    border: none;
-    // background-color: transparent;
-    padding: 5px 10px;
+    align-items: center;
+    height: 50%;
     float: right;
-    right: 15px;
-    top: 15px;
-    z-index: 5;
-    transition: all 0.2s ease-in-out;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    border: none;
+    border-radius: 0 10px 0 0;
+    padding: 5px 5px;
+    transition: all 0.4s ease-in-out;
     color: ghostwhite;
-    border-radius: 10px;
-    background: var(--color-button);
-    box-shadow:  var(--boxshadow);
+    background: red;
+    box-shadow: var(--boxshadow);
     &:hover {
-        transform: scale(1.05);
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+        z-index: 4;
+    }
+    img {
+        height: 20px;
     }
 }
 .delete-action {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0;
-}
-.delete-form {
+    position: absolute;
     display: none;
-    justify-content: flex-end;
-    margin-top: 30px;
-    p {
-        font-size: large;
-        color: var(--color-strong-text-color);
-    }
+    margin: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
 }
 .dont-delete {
     width: 200px;
@@ -830,6 +842,96 @@ textarea::placeholder {
     }
 }
 
+
+/******************** Update ********************/ 
+
+.update-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 50%;
+    float: right;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    border: none;
+    border-radius: 0 0 10px 0;
+    padding: 5px 5px;
+    transition: all 0.4s ease-in-out;
+    color: ghostwhite;
+    background: darkgrey;
+    box-shadow: var(--boxshadow);
+    &:hover {
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+    }
+    img {
+        height: 20px;
+    }
+}
+
+.validation-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 50%;
+    float: right;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    border: none;
+    border-radius: 0 10px 0 0;
+    padding: 5px 5px;
+    transition: all 0.4s ease-in-out;
+    color: ghostwhite;
+    background: limegreen;
+    box-shadow: var(--boxshadow);
+    &:hover {
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+        z-index: 4;
+    }
+    img {
+        height: 20px;
+    }
+}
+
+.update-form {
+    display: none;
+    .update-action {
+        display: contents;
+        .update-title {
+            width: 700px;
+            height: 50px;
+            font-size: 25px;
+            font-weight: 600;
+            max-width: 700px;
+            margin-bottom: 15px;
+            padding: 15px;
+            text-decoration-line: underline;
+            background-color: rgba(248, 248, 255, 0.3);
+            color: ghostwhite;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            &:focus {
+                background-color: rgba(248, 248, 255, 0.5);
+            }
+        }
+        .update-description {
+            background-color: rgba(248, 248, 255, 0.3);
+            width: 100%;
+            height: max-content;
+            font-size: medium;
+            outline: none;
+            margin: 0;
+            border-radius: 5px;
+            &:focus {
+                background-color: rgba(248, 248, 255, 0.5);
+            }
+        }
+    }
+}
 
 
 /********** Footer **********/ 

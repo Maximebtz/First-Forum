@@ -5,6 +5,18 @@
   box-sizing: border-box;
   transition: all 0.4s ease-in-out;
 }
+*::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 20px;
+}
+*::-webkit-scrollbar-track {
+  background-color: rgba(80, 80, 80, 0.5);
+  border-radius: 20px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(32, 32, 32, 0.7);
+  border-radius: 20px;
+}
 
 :root {
   --background-img: url(../img/BackGround.png);
@@ -391,6 +403,7 @@ nav .light-mode input:checked + .switch:active::before {
 }
 .wrapper-list p {
   opacity: 70%;
+  padding-right: 20px;
 }
 .wrapper-list .cards {
   -webkit-backdrop-filter: blur(25px);
@@ -411,7 +424,7 @@ nav .light-mode input:checked + .switch:active::before {
   border-radius: 10px;
   background: var(--color-card);
   cursor: pointer;
-  padding: 25px;
+  padding: 25px 50px 25px 25px;
   transition: all 0.4s ease-in-out;
   position: relative;
   border: var(--color-border);
@@ -632,39 +645,36 @@ textarea::placeholder {
 .delete-btn {
   position: absolute;
   display: flex;
-  font-size: larger;
-  font-weight: 500;
-  border: none;
-  padding: 5px 10px;
+  align-items: center;
+  height: 50%;
   float: right;
-  right: 15px;
-  top: 15px;
-  z-index: 5;
-  transition: all 0.2s ease-in-out;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  border: none;
+  border-radius: 0 10px 0 0;
+  padding: 5px 5px;
+  transition: all 0.4s ease-in-out;
   color: ghostwhite;
-  border-radius: 10px;
-  background: var(--color-button);
+  background: red;
   box-shadow: var(--boxshadow);
 }
 .delete-btn:hover {
-  transform: scale(1.05);
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  z-index: 4;
+}
+.delete-btn img {
+  height: 20px;
 }
 
 .delete-action {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-}
-
-.delete-form {
+  position: absolute;
   display: none;
-  justify-content: flex-end;
-  margin-top: 30px;
-}
-.delete-form p {
-  font-size: large;
-  color: var(--color-strong-text-color);
+  margin: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
 }
 
 .dont-delete {
@@ -694,6 +704,96 @@ textarea::placeholder {
 }
 .conf-delete:hover {
   transform: scale(1.05);
+}
+
+/******************** Update ********************/
+.update-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 50%;
+  float: right;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  border: none;
+  border-radius: 0 0 10px 0;
+  padding: 5px 5px;
+  transition: all 0.4s ease-in-out;
+  color: ghostwhite;
+  background: darkgrey;
+  box-shadow: var(--boxshadow);
+}
+.update-btn:hover {
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+}
+.update-btn img {
+  height: 20px;
+}
+
+.validation-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 50%;
+  float: right;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  border: none;
+  border-radius: 0 10px 0 0;
+  padding: 5px 5px;
+  transition: all 0.4s ease-in-out;
+  color: ghostwhite;
+  background: limegreen;
+  box-shadow: var(--boxshadow);
+}
+.validation-btn:hover {
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  z-index: 4;
+}
+.validation-btn img {
+  height: 20px;
+}
+
+.update-form {
+  display: none;
+}
+.update-form .update-action {
+  display: contents;
+}
+.update-form .update-action .update-title {
+  width: 700px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  max-width: 700px;
+  margin-bottom: 15px;
+  padding: 15px;
+  text-decoration-line: underline;
+  background-color: rgba(248, 248, 255, 0.3);
+  color: ghostwhite;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.update-form .update-action .update-title:focus {
+  background-color: rgba(248, 248, 255, 0.5);
+}
+.update-form .update-action .update-description {
+  background-color: rgba(248, 248, 255, 0.3);
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  font-size: medium;
+  outline: none;
+  margin: 0;
+  border-radius: 5px;
+}
+.update-form .update-action .update-description:focus {
+  background-color: rgba(248, 248, 255, 0.5);
 }
 
 /********** Footer **********/

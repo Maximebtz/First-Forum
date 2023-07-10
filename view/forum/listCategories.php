@@ -19,19 +19,26 @@ $categories = $result["data"]['categories'];
             <?php
                 foreach ($categories as $category) {
             ?>
-                <div class="delete-form">
-                    <form class="delete-action" action="index.php?ctrl=forum&action=deleteCategory&id=<?= $category->getId() ?>" method="post">
-                        <p>Êtes-vous sûr de vouloir supprimer ?</p>
-                        <input class="conf-delete" type="submit" value="Supprimer">
-                        <a href=""><input class="dont-delete" type="button" value="Non"></a>
-                    </form>
+                
+                    <div class='card'>
+                        <button class="delete-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-supprimer-64.png" alt="delete-icon"></button>
+                        <button class="update-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
+                        <a href="index.php?ctrl=forum&action=listTopics&id=<?= $category->getId() ?>">
+                            <h3><?= $category->getName() ?> :</h3>
+                            <p><?= $category->getDescription() ?></p>
+                        </a>
+                        <form class="delete-action" action="index.php?ctrl=forum&action=deleteCategory&id=<?= $category->getId() ?>" method="post">
+                            <button type="submit" class="delete-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-supprimer-64.png" alt="delete-confirmation-icon"></button>
+                            <a href="index.php?ctrl=forum&action=listCategory"><button class="update-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-multiplier-20.png" alt="annulation-icon"></button></a>
+                        </form>
                 </div>
-                <div class='card'>
-                    <button class="delete-btn" data-card-id="<?= $category->getId() ?>">x</button>
-                    <a href="index.php?ctrl=forum&action=listTopics&id=<?= $category->getId() ?>">
-                        <h3><?= $category->getName() ?> :</h3>
-                        <p><?= $category->getDescription() ?></p>
-                    </a>
+                <div class='card update-form'>
+                    <form class="update-action" action="">
+                        <input class="update-title" type="text" value="<?= $category->getName() ?> :">
+                        <textarea class="update-description" name="description" id="description"><?= $category->getDescription() ?></textarea>
+                        <button type="submit" class="validation-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-coche-20.png" alt="update-validation-icon"></button>
+                        <a href=""><button class="update-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-multiplier-20.png" alt="annulation-icon"></button></a>
+                    </form>
                 </div>
             <?php
                 }
@@ -73,7 +80,7 @@ $categories = $result["data"]['categories'];
     /********** deleteForm ********/ 
 
     const deleteBtns = document.querySelectorAll('.delete-btn');
-    const deleteForms = document.querySelectorAll('.delete-form');
+    const deleteForms = document.querySelectorAll('.delete-action');
 
     deleteBtns.forEach(function(deleteBtn, index) {
         deleteBtn.addEventListener('click', function() {
@@ -87,6 +94,23 @@ $categories = $result["data"]['categories'];
         deleteForm.style.display = 'flex';
     }
 
-    console.log(deleteBtns);
+
+    /********** updateForm ********/ 
+
+    const updateBtns = document.querySelectorAll('.update-btn');
+    const updateForms = document.querySelectorAll('.update-form');
+
+    updateBtns.forEach(function(updateBtn, index) {
+        updateBtn.addEventListener('click', function() {
+            const updateForm = updateForms[index];
+            const card = updateBtn.closest('.card');
+            showupdateForm(updateForm, card);
+        });
+    });
+
+    function showupdateForm(updateForm, card) {
+        updateForm.style.display = 'block';
+    }
+
 
 </script>

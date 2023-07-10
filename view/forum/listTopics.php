@@ -36,7 +36,8 @@ $category = null;
                     </form>
                 </div>
                 <div class='card'>
-                    <button class="delete-btn">x</button>
+                    <button class="delete-btn"><img src="./public/img/icons8-supprimer-64.png" alt="delete-icon"></button>
+                    <button class="update-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
                     <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                         <h3><?= $topic->getTitle() ?></h3>
                         <p><?= $topic->getCreationDate() ?></p>
