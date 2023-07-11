@@ -732,6 +732,31 @@ textarea::placeholder {
   height: 20px;
 }
 
+.close-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 50%;
+  float: right;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  border: none;
+  border-radius: 0 0 10px 0;
+  padding: 5px 5px;
+  transition: all 0.4s ease-in-out;
+  color: ghostwhite;
+  background: darkgrey;
+  box-shadow: var(--boxshadow);
+}
+.close-btn:hover {
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+}
+.close-btn img {
+  height: 20px;
+}
+
 .validation-btn {
   position: absolute;
   display: flex;

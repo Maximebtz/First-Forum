@@ -29,7 +29,7 @@
             return [
                 "view" => VIEW_DIR."forum/listCategories.php",
                 "data" => [
-                    "categories" => $categoryManager->findAll()
+                    "categories" => $categoryManager->findAll(['name', 'ASC'])
                     ]
                 ];
         }
@@ -175,6 +175,7 @@
     }
 
 
+
     public function deleteTopic($idTopic){
 
         $topicManager = new topicManager();
@@ -189,5 +190,30 @@
                 "topics" => $topicManager->findAll()
                 ]
             ];
+    }
+
+
+
+/********** Update **********/ 
+
+    public function updateCategory($idCategory){
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        $categoryManager = new CategoryManager();
+
+
+        $categoryManager->update([
+                                'name' => $name,
+                                'description' => $description
+                                ], 
+                                $idCategory);
+
+        return [
+            "view" => VIEW_DIR . "forum/listCategories.php",
+            "data" => [
+                "categories" => $categoryManager->findAll()
+            ]
+        ];
     }
 }

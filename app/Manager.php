@@ -78,6 +78,37 @@
             }
         }
 
+        
+        public function update($data, $id){
+            // Récupérer les clés et les valeurs du tableau $data
+            $columns = array_keys($data);
+            $values = array_values($data);
+
+            // Construire la clause SET de la requête SQL
+            $setClause = '';
+            for ($i = 0; $i < count($columns); $i++) {
+                $setClause .= $columns[$i] . " = ?"; // Ajouter chaque colonne avec un marqueur de paramètre
+                if ($i < count($columns) - 1) {
+                    $setClause .= ", "; // Ajouter une virgule entre les colonnes
+                }
+            }
+
+            // Construire la requête SQL complète
+            $sql = "UPDATE " . $this->tableName . " SET " . $setClause . " WHERE id_" . $this->tableName . " = ?";
+
+            // Ajouter l'ID à la liste des valeurs
+            $values[] = $id;
+
+            try {
+                // Appeler la méthode d'exécution de requête de mise à jour dans le DAO avec la requête SQL et les valeurs
+                return DAO::update($sql, $values);
+            } catch (\PDOException $e) {
+                echo $e->getMessage();
+                die();
+            }
+        }
+
+
 
         public function addWithDepTable($data1, $data2) {
             $keys1 = array_keys($data1);

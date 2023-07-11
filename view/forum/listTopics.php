@@ -8,6 +8,7 @@ $category = null;
     <div class="wrapper-list">
     
         <?php
+            if($topics){
             foreach($topics as $topic){
                 if ($category === null) {
                     $category = $topic->getCategory();
@@ -27,23 +28,43 @@ $category = null;
                         </div>
                         <div class='cards' id='cards'>"; 
                 }
+
             ?>
-                <div class="delete-form">
-                    <form class="delete-action" action="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>" method="post">
-                        <p>Êtes-vous sûr de vouloir supprimer ?</p>
-                        <input class="conf-delete" type="submit" value="Supprimer">
-                        <a href=""><input class="dont-delete" type="button" value="Non"></a>
-                    </form>
-                </div>
                 <div class='card'>
                     <button class="delete-btn"><img src="./public/img/icons8-supprimer-64.png" alt="delete-icon"></button>
-                    <button class="update-btn" data-card-id="<?= $category->getId() ?>"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
+                    <button class="update-btn"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
                     <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                         <h3><?= $topic->getTitle() ?></h3>
                         <p><?= $topic->getCreationDate() ?></p>
                     </a>
+                    <form class="delete-action" action="index.php?ctrl=forum&action=deleteTopic&id=<?= $topic->getId() ?>" method="post">
+                        <button type="submit" class="delete-btn"><img src="./public/img/icons8-supprimer-64.png" alt="delete-confirmation-icon"></button>
+                        <a href="index.php?ctrl=forum&action=listTopics"><button type="button" class="close-btn"><img src="./public/img/icons8-multiplier-20.png" alt="annulation-icon"></a>
+                    </form>
                 </div>
-            <?php
+                <div class='card update-form'>
+                    <form class="update-action" action="index.php?ctrl=forum&action=listTopics" method="post">
+                        <input class="update-title" type="text" value="<?= $topic->getTitle() ?> :">
+                        <textarea class="update-description" name="description" id="description"><?= $topic->getDescription() ?></textarea>
+                        <button type="submit" class="validation-btn" data-card-id="<?= $topic->getId() ?>"><img src="./public/img/icons8-coche-20.png" alt="update-validation-icon"></button>
+                        <a href="index.php?ctrl=forum&action=listTopics"><button class="update-btn" data-card-id="<?= $topic->getId() ?>"><img src="./public/img/icons8-multiplier-20.png" alt="annulation-icon"></button></a>
+                    </form>
+                </div>
+            <?php }
+                } else {
+                echo "
+                <input type='button' class='new-msg-btn' value='Nouveau Topic'></input>
+                <form action='index.php?ctrl=forum&action=addTopic&id=" . $category->getId() . "' method='post' class='btn-convert-msg'>
+                    <label for='title-topic'>Titre :</label>
+                    <input class='new-title-topic' type='text' name='title' id='title-topic'>
+                    <label for='description-topic'>Description :</label>
+                    <textarea class='new-msg-text hidden' name='description' id='description-topic' placeholder='Décrire le nouveau sujet...'></textarea>
+                    <label for='post-topic'>Message :</label>
+                    <textarea class='new-msg-text hidden' name='text' id='post-topic' placeholder='Ecrire le premier message ici...'></textarea>
+                    <button type='submit' name='addTopic' class='msg-sub-btn'><img src='./public/img/icons8-envoyé-24.png' alt=''></button>
+                </form>
+                <p>Il n'y a pas encore de topic pour cette catégorie</p>
+                    ";
                 }
             ?>
         </div> 
@@ -83,7 +104,7 @@ $category = null;
     /********** deleteForm ********/ 
 
     const deleteBtns = document.querySelectorAll('.delete-btn');
-    const deleteForms = document.querySelectorAll('.delete-form');
+    const deleteForms = document.querySelectorAll('.delete-action');
 
     deleteBtns.forEach(function(deleteBtn, index) {
         deleteBtn.addEventListener('click', function() {
@@ -97,5 +118,21 @@ $category = null;
         deleteForm.style.display = 'flex';
     }
 
-    console.log(deleteBtns);
+    
+    /********** updateForm ********/ 
+
+    const updateBtns = document.querySelectorAll('.update-btn');
+    const updateForms = document.querySelectorAll('.update-form');
+
+    updateBtns.forEach(function(updateBtn, index) {
+        updateBtn.addEventListener('click', function() {
+            const updateForm = updateForms[index];
+            const card = updateBtn.closest('.card');
+            showupdateForm(updateForm, card);
+        });
+    });
+
+    function showupdateForm(updateForm, card) {
+        updateForm.style.display = 'block';
+    }
 </script>
