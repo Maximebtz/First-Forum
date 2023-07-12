@@ -9,7 +9,7 @@
 
 <div class="wrapper-log">
     
-    <form action="" method="POST" class="form login">
+    <form action="index.php?ctrl=security&action=register" method="POST" class="form login">
     
       <div class="form__field">
         <label for="username"><svg class="icon">
@@ -18,16 +18,22 @@
         <input autocomplete="username" id="username" type="text" name="username" class="form__input" placeholder="Pseudo" required>
       </div>
       <div class="form__field">
-        <label for="password"><svg class="icon">
-            <use xlink:href="#icon-lock"></use>
-          </svg><span class="hidden">Mot de passe</span></label>
-        <input id="password" type="password" name="password" class="form__input" placeholder="Mot de passe" required>
+        <label for="email"><svg class="icon">
+            <use xlink:href="#icon-user"></use>
+          </svg><span class="hidden">Email</span></label>
+        <input autocomplete="email" id="email" type="text" name="email" class="form__input" placeholder="exemple@example.com" required>
       </div>
       <div class="form__field">
         <label for="password"><svg class="icon">
             <use xlink:href="#icon-lock"></use>
+          </svg><span class="hidden">Mot de passe</span></label>
+        <input id="password" type="password" name="password" class="form__input" minlength="8" placeholder="Mot de passe (Min. 8 char.)" required>
+      </div>
+      <div class="form__field">
+        <label for="password2"><svg class="icon">
+            <use xlink:href="#icon-lock"></use>
           </svg><span class="hidden">Confirmation</span></label>
-        <input id="password" type="password" name="password" class="form__input" placeholder="Confirmation" required>
+        <input id="password2" type="password" name="password2" class="form__input" minlength="8" placeholder="Confirmation" required>
       </div>
     
       <div class="form__field">

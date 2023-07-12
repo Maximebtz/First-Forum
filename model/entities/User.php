@@ -7,6 +7,7 @@
 
         private $id;
         private $username;
+        private $email;
         private $inscriptionDate;
         private $image;
         private $status;
@@ -93,6 +94,19 @@
         public function setDescription($description)
         {
                 $this->description = $description;
+
+                return $this;
+        }
+
+        
+        public function getEmail()
+        {
+                return $this->email;
+        }
+
+        public function setEmail($email)
+        {
+                $this->email = $email;
 
                 return $this;
         }

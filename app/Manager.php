@@ -24,7 +24,6 @@
                 $this->className
             );
         }
-       
 
         public function findAllByID($id, $order = null){
             $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
@@ -40,6 +39,8 @@
             );
         }
 
+        
+
         public function findOneById($id){
 
             $sql = "SELECT *
@@ -49,6 +50,19 @@
 
             return $this->getOneOrNullResult(
                 DAO::select($sql, ['id' => $id], false), 
+                $this->className
+            );
+        }
+
+        public function findOneByUsername($table){
+
+            $sql = "SELECT *
+                    FROM ".$this->tableName." a
+                    WHERE a.".$this->table." = :id
+                    ";
+
+            return $this->getOneOrNullResult(
+                DAO::select($sql, ['id' => $table], false), 
                 $this->className
             );
         }

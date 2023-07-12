@@ -9,7 +9,7 @@
 
 <div class="wrapper-log">
     
-    <form action="" method="POST" class="form login">
+    <form action="index.php?ctrl=security&action=logIn" method="POST" class="form login">
     
       <div class="form__field">
         <label for="login__username"><svg class="icon">

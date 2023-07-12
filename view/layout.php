@@ -24,7 +24,7 @@
             <div class="links">
                 <div class="link">
                     <img src="./public/img/Home.png" alt="home icon">
-                    <a id="home" href="/exo-forum/First-Forum/">Home</a>
+                    <a id="home" href="index.php">Home</a>
                 </div>
                 <div class="link">
                     <img src="./public/img/Globe.png" alt="globe icon">

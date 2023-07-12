@@ -9,6 +9,7 @@
 
         protected $className = "Model\Entities\User";
         protected $tableName = "user";
+        protected $table = "username";
 
 
         public function __construct(){
