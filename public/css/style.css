@@ -23,6 +23,7 @@
   --color-navbar: rgba(80, 80, 80, 0.4);
   --color-light-text-color: rgba(248, 248, 255, 0.5);
   --color-strong-text-color: ghostwhite;
+  --btn-text: rgba(140, 140, 140, 0.9);
   --color-section-2: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
   --color-card: rgba(16, 16, 16, 0.70);
   --color-cards: rgba(30, 30, 30, 0.8);
@@ -78,6 +79,137 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
+/********** User **********/
+/****** log ******/
+.wrapper-log {
+  margin: 0 5% 0 17%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* helpers/align.css */
+  /* modules/text.css */
+}
+.wrapper-log .align {
+  display: grid;
+  place-items: center;
+}
+.wrapper-log .grid {
+  inline-size: 90%;
+  margin-inline: auto;
+  max-inline-size: 20rem;
+}
+.wrapper-log .hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.wrapper-log .icons {
+  display: none;
+}
+.wrapper-log .icon {
+  block-size: 1em;
+  display: inline-block;
+  fill: var(--btn-text);
+  inline-size: 1em;
+  vertical-align: middle;
+  transition: all 0.2s ease-in-out;
+}
+.wrapper-log a {
+  color: var(--color-strong-text-color);
+  outline: 0;
+  text-decoration: none;
+}
+.wrapper-log a:focus,
+.wrapper-log a:hover {
+  text-decoration: underline;
+}
+.wrapper-log input {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+.wrapper-log input[type=submit] {
+  cursor: pointer;
+}
+.wrapper-log .form {
+  display: grid;
+  gap: 20px;
+}
+.wrapper-log .form input[type=password],
+.wrapper-log .form input[type=text],
+.wrapper-log .form input[type=submit] {
+  inline-size: 100%;
+}
+.wrapper-log .form__field {
+  display: flex;
+}
+.wrapper-log .form__input {
+  flex: 1;
+}
+.wrapper-log .login {
+  color: var(--btn-text);
+  margin: 0;
+}
+.wrapper-log .login label,
+.wrapper-log .login input[type=text],
+.wrapper-log .login input[type=password],
+.wrapper-log .login input[type=submit] {
+  border-radius: 5px;
+  padding: 1rem;
+}
+.wrapper-log .login label {
+  background-color: var(--color-navbar);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-inline: 1.25rem;
+  margin: 0;
+}
+.wrapper-log .login input[type=password],
+.wrapper-log .login input[type=text] {
+  background-color: var(--color-cards);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-columns: var(--btn-text);
+       columns: var(--btn-text);
+  color: var(--color-strong-text-color);
+}
+.wrapper-log .login input[type=password]:focus,
+.wrapper-log .login input[type=password]:hover,
+.wrapper-log .login input[type=text]:focus,
+.wrapper-log .login input[type=text]:hover {
+  background-color: var(--color-cards);
+}
+.wrapper-log .login input[type=submit] {
+  background-color: var(--color-button);
+  color: var(--btn-text);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.wrapper-log .login input[type=submit]:focus,
+.wrapper-log .login input[type=submit]:hover {
+  background-color: var(--btn-text);
+  color: var(--color-strong-text-color);
+}
+.wrapper-log p {
+  margin-block: 1.5rem;
+}
+.wrapper-log .text--center {
+  text-align: center;
+  color: gray;
+}
+
 /********** Header **********/
 header {
   padding: 25px;
@@ -86,6 +218,9 @@ header {
   width: 100%;
   justify-content: flex-end;
   z-index: 1;
+}
+header a {
+  color: var(--white);
 }
 header .login-btn {
   background: var(--color-button);
@@ -102,7 +237,28 @@ header .login-btn {
 }
 header .login-btn:hover {
   background: rgba(248, 248, 255, 0.8);
-  color: var(--color-strong-text-color);
+  color: var(--color-button);
+}
+header .signup-btn {
+  margin-right: 20px;
+  border-radius: 10px;
+  width: 100px;
+  height: 46px;
+  box-shadow: var(--boxshadow);
+  -webkit-backdrop-filter: blur(12.5px);
+          backdrop-filter: blur(12.5px);
+  border: none;
+  font-size: 1.2em;
+  transition: all 0.4s ease-in-out;
+  background: rgba(248, 248, 255, 0.8);
+  color: var(--color-button);
+}
+header .signup-btn a {
+  color: var(--color-button);
+}
+header .signup-btn:hover {
+  background: var(--color-button);
+  color: var(--white);
 }
 
 /********** NavBar **********/

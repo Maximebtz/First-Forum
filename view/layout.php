@@ -12,7 +12,8 @@
 </head>
 <body>
     <header>
-        <button class="login-btn" href="#">Log In</button>
+        <a href="index.php?ctrl=security&action=displaySignUp"><button class="signup-btn" href="">Sign Up</button></a>
+        <a href="index.php?ctrl=security&action=displayLogIn"><button class="login-btn">Log In</button></a>
     </header>
     <nav>
         <div class="upper-nav-content">
