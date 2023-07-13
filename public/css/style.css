@@ -261,6 +261,30 @@ header .signup-btn:hover {
   color: var(--white);
 }
 
+/********** Header with log **********/
+.img-user-header {
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.img-user-header img {
+  width: 60px;
+  height: 60px;
+}
+.img-user-header .online-span {
+  position: absolute;
+  background-color: limegreen;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  bottom: 35px;
+  right: 28px;
+}
+.img-user-header form.log-out {
+  display: flex;
+}
+
 /********** NavBar **********/
 nav {
   position: fixed;

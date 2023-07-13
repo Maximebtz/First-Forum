@@ -24,7 +24,8 @@
                         u.email,
                         u.inscriptionDate,
                         u.image,
-                        u.status
+                        u.status,
+                        u.description
                     FROM ".$this->tableName." u
                     WHERE u.username = :username";
                     

@@ -9,15 +9,15 @@
         private $username;
         private $email;
         private $inscriptionDate;
+        private $password; 
         private $image;
         private $status;
-        private $password;
         private $description;
 
-        public function __construct($data){         
+        public function __construct($data){     
+                // var_dump($data);
             $this->hydrate($data);  
         }
-
 
         
         public function getId()
@@ -58,7 +58,20 @@
             return $this;
         }
 
+
+        public function getPassword()
+        {
+                return $this->password;
+        }
+
+        public function setPassword($password)
+        {
+                $this->password = $password;
+
+                return $this;
+        }
          
+        
         public function getImage()
         {
                 return $this->image;
@@ -110,11 +123,5 @@
                 $this->email = $email;
 
                 return $this;
-        }
-
-        
-        public function getPassword()
-        {
-                return $this->password;
         }
     }

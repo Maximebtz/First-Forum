@@ -86,30 +86,28 @@
                     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     
                     $user = $userManager->findUserByUsername($username);
+                    if($username && $password && $user) {
+                        
+                        // echo "<pre>";
+                        // var_dump($user);
+                        // echo "</pre>";
+                        $hash = $user->getPassword();
+                        if(password_verify($password, $hash)) {
 
-                    
-                    if($username && $password) {
-                        if($user){
-                            $hash = $user->getPassword();
+                            $session->setUser($user);
+                            header("Location: index.php");
+                            return [
+                                "view" => VIEW_DIR."index.php?ctrl=security&action=displayLogIn",
+                            ];
                             
-                            if(password_verify($password, $hash)) {
-                                
-                                $session = new Session();
-                                
-                                return [
-                                    $session->setUser($user),
-                                    "view" => VIEW_DIR."index.php?ctrl=security&action=displayLogIn",
-                                ];
-                                
-                            } else {
-                                
-                                // header("Location : index.php?ctrl=security&action=displayLogIn"); exit;
-                            }
+                        } else {
+                            
+                            header("Location: index.php?ctrl=security&displayLogIn"); exit;
                         }
-                    } 
-                    echo"<pre>";
-                                var_dump($user);
-                                echo"</pre>";
+                    }
+                    
+                    
+                    
                     
                 // } else {
 

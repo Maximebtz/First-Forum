@@ -1,3 +1,10 @@
+<?php
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,8 +19,25 @@
 </head>
 <body>
     <header>
+
+    <?php
+        if($_SESSION['user']){ 
+    ?>  
+        <form class="log-out" action="index.php?ctrl=security&action=logOut">
+            <button>Se déconnecter</button>
+        </form>
+        <figure class="img-user-header">
+            <img src="./public/img/<?= $_SESSION['user']->getImage() ?>" alt=""><span class="online-span"></span></img>
+        </figure>
+    <?php 
+        } else { 
+    ?>
         <a href="index.php?ctrl=security&action=displaySignUp"><button class="signup-btn" href="">Sign Up</button></a>
         <a href="index.php?ctrl=security&action=displayLogIn"><button class="login-btn">Log In</button></a>
+    <?php 
+        } 
+    ?>
+
     </header>
     <nav>
         <div class="upper-nav-content">

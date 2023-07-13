@@ -275,6 +275,7 @@ header {
         a {
             color: var(--color-button);
         }
+        
         margin-right: 20px;
         border-radius: 10px;
         width: 100px;
@@ -293,7 +294,27 @@ header {
     }
 }
 
-
+/********** Header with log **********/ 
+.img-user-header{
+    height: max-content;
+    width: max-content;
+    img {
+        width: 60px;
+        height: 60px;
+    }
+    .online-span {
+        position: absolute;
+        background-color: limegreen;
+        height: 10px;
+        width: 10px;
+        border-radius: 10px;
+        bottom: 35px;
+        right: 28px;
+    }
+    form.log-out {
+        display: flex;
+    }
+}
 
 /********** NavBar **********/ 
 
