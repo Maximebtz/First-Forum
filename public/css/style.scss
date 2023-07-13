@@ -25,6 +25,7 @@
     --color-light-text-color:  rgba(248, 248, 255, 0.5);
     --color-strong-text-color:  ghostwhite;
     --btn-text: rgba(140, 140, 140, 0.9);
+    --btn-text2: rgba(144, 144, 144, 0.9);
     --color-section-2: linear-gradient(180deg, rgba(16, 16, 16, 0.3) 0%, rgba(16, 16, 16, 0.6) 100%);
     --color-card: rgba(16, 16, 16, 0.70);
     --color-cards: rgba(30, 30, 30, 0.8);
@@ -45,6 +46,7 @@
     --color-light-text-color:  rgb(78, 137, 174);
     --color-strong-text-color:  rgb(67, 101, 139);
     --btn-text: ghostwhite;
+    --btn-text2: rgb(67, 101, 139);
     --color-section-2: rgb(249, 245, 235, 0.5);
     --color-card: rgb(237, 102, 99);
     --color-cards: rgb(228, 220, 207, 0.5);
@@ -268,7 +270,7 @@ header {
         transition: all 0.4s ease-in-out;
         &:hover {
             background: rgba(248, 248, 255, 0.80);
-            color: var(--color-button);
+            color: var(--btn-text2);
         }
     }
     .signup-btn {
@@ -286,7 +288,7 @@ header {
         font-size: 1.2em;
         transition: all 0.4s ease-in-out;
         background: rgba(248, 248, 255, 0.80);
-        color: var(--color-button);
+        color: var(--btn-text2);
         &:hover {
             background: var(--color-button);
             color: var(--white);
@@ -301,6 +303,7 @@ header {
     img {
         width: 60px;
         height: 60px;
+        border-radius: 25px;
     }
     .online-span {
         position: absolute;
