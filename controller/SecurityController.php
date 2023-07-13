@@ -78,50 +78,58 @@
 
             public function logIn() {
 
+                if(isset($_SESSION['user'])){
+                        header("Location: index.php?ctrl=security&action=displayLogIn");
+                }
 
-                    $userManager= new UserManager();
-                    $session = new Session();
+                $userManager= new UserManager();
+                $session = new Session();
 
-                    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                    
-                    $user = $userManager->findUserByUsername($username);
-                    if($username && $password && $user) {
-                        
-                        // echo "<pre>";
-                        // var_dump($user);
-                        // echo "</pre>";
-                        $hash = $user->getPassword();
-                        if(password_verify($password, $hash)) {
-
-                            $session->setUser($user);
-                            header("Location: index.php");
-                            return [
-                                "view" => VIEW_DIR."index.php?ctrl=security&action=displayLogIn",
-                            ];
-                            
-                        } else {
-                            
-                            header("Location: index.php?ctrl=security&displayLogIn"); exit;
-                        }
-                    }
-                    
-                    
-                    
-                    
-                // } else {
-
-                // }
-
-                return [
-                    "view" => VIEW_DIR."security/login.php",
-                    ];
-            }
-
-            public function logOut() {
+                $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 
-                unset($_SESSION['user']);
-                header('Location: exo-forum/First-Forum/'); exit;
+                $user = $userManager->findUserByUsername($username);
 
-            }
+                
+
+
+                if($username && $password && $user) {
+                    
+                    // echo "<pre>";
+                    // var_dump($user);
+                    // echo "</pre>";
+                    $hash = $user->getPassword();
+                    if(password_verify($password, $hash)) {
+
+                        $session->setUser($user);
+                        header("Location: index.php");
+                        return [
+                            "view" => VIEW_DIR."index.php?ctrl=security&action=displayLogIn",
+                        ];
+                        
+                    } else {
+                        
+                        header("Location: index.php?ctrl=security&displayLogIn"); exit;
+                    }
+                }
+                
+                
+                
+                
+            // } else {
+
+            // }
+
+            return [
+                "view" => VIEW_DIR."security/login.php",
+                ];
+        }
+
+        public function logOut() {
+            
+            unset($_SESSION['user']);
+
+            header('Location: index.php'); exit;
+
+        }
     }

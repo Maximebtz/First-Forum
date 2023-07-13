@@ -263,10 +263,8 @@ header .signup-btn:hover {
 
 /********** Header with log **********/
 .img-user-header {
-  height: -moz-max-content;
-  height: max-content;
-  width: -moz-max-content;
-  width: max-content;
+  height: 60px;
+  width: 60px;
 }
 .img-user-header img {
   width: 60px;
@@ -278,11 +276,23 @@ header .signup-btn:hover {
   height: 10px;
   width: 10px;
   border-radius: 10px;
-  bottom: 35px;
+  bottom: 30px;
   right: 28px;
 }
-.img-user-header form.log-out {
+
+.logout {
   display: flex;
+  justify-content: center;
+  margin: 0 25px;
+  height: 60px;
+}
+.logout button {
+  background: none;
+  border: none;
+}
+.logout img {
+  height: 25px;
+  width: 25px;
 }
 
 /********** NavBar **********/

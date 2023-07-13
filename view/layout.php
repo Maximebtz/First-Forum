@@ -21,11 +21,11 @@
     <header>
 
     <?php
-        if($_SESSION['user']){ 
+        if(isset($_SESSION['user'])){ 
     ?>  
-        <form class="log-out" action="index.php?ctrl=security&action=logOut">
-            <button>Se déconnecter</button>
-        </form>
+        
+        <a class="logout" href="index.php?ctrl=security&action=logOut"><button><img src="./public/img/icons8-sortie-50.png" alt=""></button></a>
+       
         <figure class="img-user-header">
             <img src="./public/img/<?= $_SESSION['user']->getImage() ?>" alt=""><span class="online-span"></span></img>
         </figure>

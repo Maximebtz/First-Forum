@@ -296,8 +296,8 @@ header {
 
 /********** Header with log **********/ 
 .img-user-header{
-    height: max-content;
-    width: max-content;
+    height: 60px;
+    width: 60px;
     img {
         width: 60px;
         height: 60px;
@@ -308,11 +308,22 @@ header {
         height: 10px;
         width: 10px;
         border-radius: 10px;
-        bottom: 35px;
+        bottom: 30px;
         right: 28px;
     }
-    form.log-out {
-        display: flex;
+}
+.logout {
+    display: flex;
+    justify-content: center;
+    margin: 0 25px;
+    height: 60px;
+    button {
+        background: none;
+        border: none;
+    }
+    img {
+        height: 25px;
+        width: 25px;
     }
 }
 
