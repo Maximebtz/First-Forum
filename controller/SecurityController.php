@@ -35,8 +35,6 @@
 
         public function register() {
             
-            
-            // if($_POST['submit']){
 
                 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
@@ -47,8 +45,16 @@
                 
                 
                 if($username && $email && $password && $password2 && $inscriptionDate) {
+
                     $userManager = new UserManager();
-                    // if($userManager->findOneByUsername($username)){
+
+                    $user = $userManager->findUserByUsername($username);
+                    
+                    var_dump($user);
+                    if($user){
+                        // header("Location: index.php?ctrl=security&action=displaySignUp");
+                        echo "<p>Cette utilisateur existe déjà !</p>";
+                    } else {
                         if($password == $password2 && strlen($password) >= 8) {
                             $userManager->add([
                                 "username" => $username,
@@ -56,18 +62,13 @@
                                 "password" => password_hash($password, PASSWORD_DEFAULT),
                                 "inscriptionDate" => $inscriptionDate
                             ]);
-                            // header('Location: index.php?ctrl=security&action=displayLogIn'); exit;
+                            header('Location: index.php?ctrl=security&action=displayLogIn'); exit;
                             
                         } else {
                             echo "<p>Les mots de passe ne sont pas identiques</p>";
                         }
-                        // }
-                        
                     }
-                    var_dump($userManager);
-            // } else {
-            //     header('Location: index.php?ctrl=home&action=index'); exit;
-            // }
+                }
     
                 return [
                     "view" => VIEW_DIR."security/signup.php",
@@ -77,27 +78,43 @@
 
             public function logIn() {
 
-                // if($_POST['submit']){
+
+                    $userManager= new UserManager();
+                    $session = new Session();
+
                     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    
+                    $user = $userManager->findUserByUsername($username);
 
+                    
                     if($username && $password) {
-                        // $user = ;
-                        
-                        // if($user){
-                            $hash = $user['password'];
+                        if($user){
+                            $hash = $user->getPassword();
+                            
                             if(password_verify($password, $hash)) {
-                                $_SESSION["user"] = $user;
-                                header("Location : index.php");
+                                
+                                $session = new Session();
+                                
+                                return [
+                                    $session->setUser($user),
+                                    "view" => VIEW_DIR."index.php?ctrl=security&action=displayLogIn",
+                                ];
+                                
                             } else {
-                                header("Location : index.php?ctrl=security&action=displayLogIn"); exit;
+                                
+                                // header("Location : index.php?ctrl=security&action=displayLogIn"); exit;
                             }
-                        // }
-                    }
+                        }
+                    } 
+                    echo"<pre>";
+                                var_dump($user);
+                                echo"</pre>";
+                    
                 // } else {
 
                 // }
-                
+
                 return [
                     "view" => VIEW_DIR."security/login.php",
                     ];

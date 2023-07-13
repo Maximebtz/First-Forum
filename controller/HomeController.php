@@ -42,9 +42,4 @@
             ];
         }
 
-        /*public function ajax(){
-            $nb = $_GET['nb'];
-            $nb++;
-            include(VIEW_DIR."ajax.php");
-        }*/
     }

@@ -9,7 +9,6 @@
 
         protected $className = "Model\Entities\User";
         protected $tableName = "user";
-        protected $table = "username";
 
 
         public function __construct(){
@@ -17,4 +16,22 @@
         }
 
 
+        public function findUserByUsername($username) {
+            $sql = "SELECT 
+                        u.id_user,
+                        u.username,
+                        u.password,
+                        u.email,
+                        u.inscriptionDate,
+                        u.image,
+                        u.status
+                    FROM ".$this->tableName." u
+                    WHERE u.username = :username";
+                    
+            return $this->getOneOrNullResult(
+            DAO::select($sql, ['username' => $username], false), 
+            $this->className
+            );
+        }
     }
+

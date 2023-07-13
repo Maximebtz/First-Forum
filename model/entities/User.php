@@ -11,6 +11,7 @@
         private $inscriptionDate;
         private $image;
         private $status;
+        private $password;
         private $description;
 
         public function __construct($data){         
@@ -109,5 +110,11 @@
                 $this->email = $email;
 
                 return $this;
+        }
+
+        
+        public function getPassword()
+        {
+                return $this->password;
         }
     }

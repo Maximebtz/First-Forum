@@ -54,15 +54,16 @@
             );
         }
 
-        public function findOneByUsername($table){
-
+        public function findAllByColumnAndValue($value, $column, $order = null){
+            $orderQuery = ($order) ? "ORDER BY ".$order[0]. " ".$order[1] : "";
+        
             $sql = "SELECT *
-                    FROM ".$this->tableName." a
-                    WHERE a.".$this->table." = :id
-                    ";
-
-            return $this->getOneOrNullResult(
-                DAO::select($sql, ['id' => $table], false), 
+                    FROM ".$this->tableName." t
+                    WHERE t.".$column." = :value
+                    ".$orderQuery;
+        
+            return $this->getMultipleResults(
+                DAO::select($sql, ['value' => $value]),
                 $this->className
             );
         }

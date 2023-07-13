@@ -19,10 +19,10 @@
       </div>
     
       <div class="form__field">
-        <label for="login__password"><svg class="icon">
+        <label for="password"><svg class="icon">
             <use xlink:href="#icon-lock"></use>
           </svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+        <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
     
       <div class="form__field">
