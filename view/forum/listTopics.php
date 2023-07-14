@@ -15,7 +15,16 @@ $category = null;
                     echo "<div class='description'>
                             <h1>" . $category->getName() . " </h1>
                             <article>" . $category->getDescription() . "</article>
-                            <input type='button' class='new-msg-btn' value='Nouveau Topic'></input>
+                            "; 
+                            
+                    if(isset($_SESSION['user'])){ 
+                        
+                        echo "
+                            <input type='button' class='new-msg-btn' value='Nouveau Topic'></input>"; 
+
+                    } 
+                    
+                    echo "
                             <form action='index.php?ctrl=forum&action=addTopic&id=" . $category->getId() . "' method='post' class='btn-convert-msg'>
                                 <label for='title-topic'>Titre :</label>
                                     <input class='new-title-topic' type='text' name='title' id='title-topic'>
@@ -31,8 +40,10 @@ $category = null;
 
             ?>
                 <div class='card'>
+                <?php if(isset($_SESSION['user'])){?>
                     <button class="delete-btn"><img src="./public/img/icons8-supprimer-64.png" alt="delete-icon"></button>
                     <button class="update-btn"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
+                <?php } ?>
                     <a href="index.php?ctrl=forum&action=listPosts&id=<?= $topic->getId() ?>">
                         <h3><?= $topic->getTitle() ?></h3>
                         <p><?= $topic->getCreationDate() ?></p>

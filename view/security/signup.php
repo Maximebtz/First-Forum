@@ -10,7 +10,7 @@
 <div class="wrapper-log">
     
     <form action="index.php?ctrl=security&action=register" method="POST" class="form login">
-      <input type="hidden" name="image" value=".public/img/">
+      <input type="hidden" name="image" value="anonymous.png">
       <div class="form__field">
         <label for="username"><svg class="icon">
             <use xlink:href="#icon-user"></use>

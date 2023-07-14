@@ -5,7 +5,9 @@ $categories = $result["data"]['categories'];
 ?>
 <div class="section-2">
     <div class="wrapper-list">
-        <input type="button" class="new-msg-btn" value="Nouvelle Categorie"></input>
+        <?php if(isset($_SESSION['user'])){ ?>
+            <input type="button" class="new-msg-btn" value="Nouvelle Categorie"></input>
+        <?php } ?>
         <form action="index.php?ctrl=forum&action=addCategory" method="post" class="btn-convert-msg">
             <label for='name-category'>Titre :</label>
             <input class='new-title-topic' type='text' name='name' id='name-category'>
@@ -20,8 +22,10 @@ $categories = $result["data"]['categories'];
             ?>
                 
                 <div class='card'>
+                <?php if(isset($_SESSION['user'])){?>
                     <button class="delete-btn"><img src="./public/img/icons8-supprimer-64.png" alt="delete-icon"></button>
                     <button class="update-btn"><img src="./public/img/icons8-modifier-20.png" alt="update-icon"></button>
+                <?php } ?>
                     <a href="index.php?ctrl=forum&action=listTopics&id=<?= $category->getId() ?>">
                         <h3><?= $category->getName() ?> :</h3>
                         <p><?= $category->getDescription() ?></p>

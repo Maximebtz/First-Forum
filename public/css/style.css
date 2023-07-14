@@ -600,13 +600,13 @@ nav .light-mode input:checked + .switch:active::before {
 }
 .wrapper-list .cards {
   -webkit-backdrop-filter: blur(25px);
-          backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
   background: var(--color-cards);
-  min-height: 680px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   padding: 50px;
+  margin: 60px 0 0 0;
   box-shadow: var(--boxshadow);
 }
 .wrapper-list .cards a {
@@ -622,6 +622,9 @@ nav .light-mode input:checked + .switch:active::before {
   position: relative;
   border: var(--color-border);
   margin-top: 25px;
+}
+.wrapper-list .card:first-child {
+  margin-top: 0;
 }
 
 .wrapper-posts {

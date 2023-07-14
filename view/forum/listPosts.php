@@ -53,7 +53,9 @@ $firstUserId = null;
             </div>
         </div>
 
-        <input type="button" class="new-msg-btn" value="Nouveau message"></input>
+        <?php if(isset($_SESSION['user'])){ ?>
+            <input type="button" class="new-msg-btn" value="Nouveau message"></input>
+        <?php } ?>
         <form action="index.php?ctrl=forum&action=addPost&id=<?= $_GET['id'] ?>" method="post" class="btn-convert-msg">
             <textarea class="new-msg-text hidden" name="text" placeholder="Ecrire ici..."></textarea>
             <button type="submit" class="msg-sub-btn"><img src="./public/img/icons8-envoyé-24.png" alt=""></button>
