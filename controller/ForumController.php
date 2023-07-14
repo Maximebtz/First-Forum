@@ -81,7 +81,7 @@
 
             $categoryManager->add(["name" => $name, "description" => $description]);
             
-            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listCategories');
+            header('Location: index.php?ctrl=forum&action=listCategories');
 
 
             return [
@@ -118,7 +118,7 @@
 
 
             // var_dump($topicManager);
-            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listTopics&id=' . $idCategory .'');
+            header('Location: index.php?ctrl=forum&action=listTopics&id=' . $idCategory .'');
             
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
@@ -132,26 +132,30 @@
 
 
 
-        public function addPost($idTopic){
-
-            $postManager = new PostManager();
-            
-            $post = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            date_default_timezone_set('Europe/Paris');
-            $date = date('Y-m-d H:i:s');
-
-            
-            $postManager->findAllPostsByTopics($idTopic, ["creationDate", "ASC"]);
-            // var_dump($postManager);
-            header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listPosts&id=' . $idTopic .'');
-            
-            return [
-                "view" => VIEW_DIR."forum/listPosts.php",
-                "data" => [
-                    "post" => $postManager->add(['text' => $post, 'creationDate' => $date, 'topic_id' => $idTopic])
-                    ]
+        public function addPost($idTopic)
+        {   
+            if(isset($_SESSION['user'])){
+                $postManager = new PostManager();
+                
+                $post = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                date_default_timezone_set('Europe/Paris');
+                $date = date('Y-m-d H:i:s');
+                
+                // Insérer le nouveau message dans la base de données
+                $postManager->add(['text' => $post, 'creationDate' => $date, 'topic_id' => $idTopic, 'user_id' => $_SESSION['user']->getId()]);
+                
+                header('Location: index.php?ctrl=forum&action=listPosts&id=' . $idTopic);
+                
+                // Données à retourner
+                return [
+                    "view" => VIEW_DIR . "forum/listPosts.php",
+                    "data" => [
+                        "posts" => $postManager->findAllPostsByTopics($idTopic, ["creationDate", "ASC"])
+                    ],
                 ];
-
+            } else {
+                header('Location: index.php?ctrl=forum&action=displayLogIn');
+            }
         }
     
 
@@ -164,7 +168,7 @@
 
         $categoryManager->delete($idCategory);
 
-        header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listCategories');
+        header('Location: index.php?ctrl=forum&action=listCategories');
 
         return [
             "view" => VIEW_DIR."forum/listCategories.php",
@@ -182,7 +186,7 @@
 
         $topicManager->delete($idTopic);
 
-        header('Location: http://localhost/exo-forum/First-Forum/index.php?ctrl=forum&action=listTopic&id=' . $idTopic .'');
+        header('Location: index.php?ctrl=forum&action=listTopic&id=' . $idTopic .'');
 
         return [
             "view" => VIEW_DIR."forum/listTopic.php",

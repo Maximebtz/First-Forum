@@ -656,11 +656,14 @@ nav .light-mode input:checked + .switch:active::before {
   font-size: large;
   padding: 20px 0 0 55px;
 }
+.wrapper-posts .post {
+  display: grid;
+}
 .wrapper-posts .first-user {
   border-radius: 15px 15px 15px 5px;
   background: var(--color-button);
   padding: 25px;
-  margin-top: 25px;
+  margin-top: 50px;
   max-width: 700px;
   transition: all 0.4s ease-in-out;
 }
@@ -670,6 +673,7 @@ nav .light-mode input:checked + .switch:active::before {
   padding: 25px;
   float: right;
   margin-top: 50px;
+  margin-left: 46%;
   max-width: 700px;
   transition: all 0.4s ease-in-out;
 }
@@ -687,7 +691,7 @@ nav .light-mode input:checked + .switch:active::before {
   border: none;
 }
 .new-msg-btn:hover {
-  color: var(--color-button);
+  color: var(--btn-text2);
   background: rgba(248, 248, 255, 0.8);
   border: none;
 }
@@ -742,7 +746,7 @@ textarea {
   margin-bottom: 25px;
   border-radius: 10px;
   background-color: var(--color-light-text-color);
-  color: var(--btn-text);
+  color: var(--color-strong-text-color);
   padding: 15px 50px 15px 15px;
   font-size: larger;
   font-family: "Poppins", sans-serif;

@@ -40,6 +40,7 @@
                 $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
                 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 date_default_timezone_set('Europe/Paris');
                 $inscriptionDate = date('Y-m-d');
                 
@@ -59,6 +60,7 @@
                             $userManager->add([
                                 "username" => $username,
                                 "email" => $email,
+                                "image" => $image,
                                 "password" => password_hash($password, PASSWORD_DEFAULT),
                                 "inscriptionDate" => $inscriptionDate
                             ]);
