@@ -53,8 +53,9 @@
                     
                     var_dump($user);
                     if($user){
-                        // header("Location: index.php?ctrl=security&action=displaySignUp");
+
                         echo "<p>Cette utilisateur existe déjà !</p>";
+                    
                     } else {
                         if($password == $password2 && strlen($password) >= 8) {
                             $userManager->add([
@@ -64,6 +65,7 @@
                                 "password" => password_hash($password, PASSWORD_DEFAULT),
                                 "inscriptionDate" => $inscriptionDate
                             ]);
+
                             header('Location: index.php?ctrl=security&action=displayLogIn'); exit;
                             
                         } else {
@@ -92,15 +94,11 @@
                 
                 $user = $userManager->findUserByUsername($username);
 
-                
-
 
                 if($username && $password && $user) {
                     
-                    // echo "<pre>";
-                    // var_dump($user);
-                    // echo "</pre>";
                     $hash = $user->getPassword();
+                    
                     if(password_verify($password, $hash)) {
 
                         $session->setUser($user);
@@ -114,13 +112,6 @@
                         header("Location: index.php?ctrl=security&displayLogIn"); exit;
                     }
                 }
-                
-                
-                
-                
-            // } else {
-
-            // }
 
             return [
                 "view" => VIEW_DIR."security/login.php",

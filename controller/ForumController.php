@@ -46,7 +46,6 @@
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
                     "topics" => $topicManager->findAllTopicsByCategory($idCategory, ["creationDate", "DESC"])
-                    // "topics" => $topicManager->findAll(["creationDate", "DESC"])
                     ]
                 ];
         }
@@ -79,7 +78,8 @@
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $categoryManager->add(["name" => $name, "description" => $description]);
+            $categoryManager->add(["name" => $name, 
+                                "description" => $description]);
             
             header('Location: index.php?ctrl=forum&action=listCategories');
 
@@ -116,14 +116,11 @@
                                             'creationDate' => $date,
                                             'topic_id' => $idTopic]);
 
-
-            // var_dump($topicManager);
             header('Location: index.php?ctrl=forum&action=listTopics&id=' . $idCategory .'');
             
             return [
                 "view" => VIEW_DIR."forum/listTopics.php",
                 "data" => [
-                    // "post" => $postManager->add(['text' => $text, 'creationDate' => $date]),
                     "topics" => $topicManager->findAllTopicsByCategory($idCategory, ["creationDate", "DESC"])
                     ]
                 ];
@@ -142,7 +139,10 @@
                 $date = date('Y-m-d H:i:s');
                 
                 // Insérer le nouveau message dans la base de données
-                $postManager->add(['text' => $post, 'creationDate' => $date, 'topic_id' => $idTopic, 'user_id' => $_SESSION['user']->getId()]);
+                $postManager->add(['text' => $post, 
+                                'creationDate' => $date, 
+                                'topic_id' => $idTopic, 
+                                'user_id' => $_SESSION['user']->getId()]);
                 
                 header('Location: index.php?ctrl=forum&action=listPosts&id=' . $idTopic);
                 
