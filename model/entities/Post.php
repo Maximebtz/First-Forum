@@ -45,6 +45,7 @@
         public function getCreationDate(){
             $formattedDate = $this->creationDate->format("d-m-Y, H:i:s");
             return $formattedDate;
+            var_dump();
         }
 
         public function setCreationDate($date){
