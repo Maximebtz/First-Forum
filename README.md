@@ -2,6 +2,8 @@
 
 First forum est la première application en php avec un framework maison faite avec la possibilitée de connecter un User et de pouvoir communiquer entre Users !
 
+Les immages ci-jointes ne sont pas les images du projet terminé, sur le projet terminé il y a en plus un lightmode, l'impossibilité d'aller sur la page login lorsqu'on est connectés ainsi que toutes les sécurités qui vont avec.
+
 #HomePage
 ![Acceuil](https://github.com/Maximebtz/First-Forum/assets/120190748/dc95e170-e80c-4e70-b912-2985d72c0422)
 
